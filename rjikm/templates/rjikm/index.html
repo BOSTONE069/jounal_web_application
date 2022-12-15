@@ -1,0 +1,51 @@
+{% extends "rjikm/layout.html" %}
+
+{% block body %}
+# This is the header of the application
+    <div class="container">
+        <p class="title">RJIKM JOURNAL</p>
+        <ul class="navigation-tabs">
+            <li class="active"><a class="nav-link" href="index">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="editorialboard.html">Editorial Board</a></li>
+            <li class="nav-item"><a class="nav-link" href="currentissues.html">Articles</a></li>
+            <li class="nav-item"><a class="nav-link" href="submit.html">Submit Manuscript</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+# This is body of the landing page
+    <div class="body">
+            <div class="header1">
+                <p>
+                  Regional Journal of Information and Knowledge Management (ISSN 2412-6535)
+                </p>
+            </div>
+
+            <div class="header2">
+                <p>
+                    This is a biannual open access scholarly journal. All the articles published in the journal are double blind peer reviewed by eminent information and knowledge management scholars
+                </p>
+            </div>
+
+    </div>
+
+
+# This is the footer of the application
+<div class="footer">
+    <div class="copyright"> Published by
+The Regional Institute of Information and Knowledge Management
+P.O. BOX 24358-00100, Nairobi, Kenya
+Copyright &copy; <script>document.write(new Date().getFullYear());</script>
+</div>
+     <ul class="footer-navigation-tabs">
+            <li class="active"><a class="nav-link" href="index">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="editorialboard.html">Editorial Board</a></li>
+            <li class="nav-item"><a class="nav-link" href="currentissues.html">Articles</a></li>
+            <li class="nav-item"><a class="nav-link" href="submit.html">Submit Manuscript</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+</div>
+{% endblock %}
+

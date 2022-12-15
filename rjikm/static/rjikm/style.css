@@ -1,0 +1,149 @@
+.container {
+    /* Rectangle 1 */
+    position: absolute;
+    width: 1440px;
+    height: 121px;
+    left: 0px;
+    top: 0px;
+    background: #EF2929;
+}
+
+.title {
+    position: absolute;
+    width: 262px;
+    height: 81px;
+    left: 22px;
+    top: 23px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.navigation-tabs {
+    /* Home About Editorial Board Articles Submit Manuscript Contact */
+    position: absolute;
+    width: 800px;
+    height: 58px;
+    left: 441px;
+    top: 33px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    /* It removes the bullets from the list. */
+    list-style-type: none;
+
+    color: #FFFFFF;
+}
+
+.body {
+    position: absolute;
+    width: 1440px;
+    height: 690px;
+    left: 0px;
+    top: 121px;
+
+    background: url(background-image.jpg);
+}
+
+.header1 {
+    /* Regional Journal of Information and Knowledge Management (ISSN 2412-6535) This is a biannual open access scholarly journal. All the articles published in the journal are double blind peer reviewed by eminent information and knowledge management scholars */
+    position: absolute;
+    width: 1352px;
+    height: 632px;
+
+    font-family: 'Domine';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 55px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #00FF66;
+}
+
+.header2 {
+    position: absolute;
+    width: 1352px;
+    height: 1000px;
+
+    font-family: 'Bree Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.footer {
+    /* Rectangle 2 */
+    position: absolute;
+    width: 1440px;
+    height: 213px;
+    left: 0px;
+    top: 811px;
+
+    background: #0A731B;
+}
+
+.copyright {
+    /* Published by The Regional Institute of Information and Knowledge Management P.O. BOX 24358-00100, Nairobi, Kenya Copyright ©2022 */
+    position: absolute;
+     width: 262px;
+    height: 81px;
+    left: 27px;
+    top: 55px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.footer-navigation-tabs {
+    position: absolute;
+    width: 676px;
+    height: 150px;
+    left: 700px;
+    top: 11px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+
