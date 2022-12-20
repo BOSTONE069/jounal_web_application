@@ -11,6 +11,6 @@ urlpatterns = [
 # default: "Django Administration"
 admin.site.site_header = 'Regional Journal of Information and Knowledge Management'
 # default: "Site administration"
-admin.site.index_title = 'Flight, Airports and Passenger'
+admin.site.index_title = 'RJIKM'
 # default: "Django site admin"
 admin.site.site_title = 'HTML title from administration'
