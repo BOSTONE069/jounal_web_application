@@ -15,8 +15,8 @@ def contact(request):
 def articles(request):
     return render(request, "rjikm/articles.html")
 
-def editorials(request):
-    return render(request, "rjikm/editorials.html")
+def editorial(request):
+    return render(request, "rjikm/editorialboard.html")
 
 def submit(request):
     return render(request, "rjikm/submit.html")
