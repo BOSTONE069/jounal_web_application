@@ -47,8 +47,9 @@ def editorial(request):
     editorialboard = Editorialboard.objects.all()
     return render(request, 'rjikm/editorialboard.html', {'editorialboard': editorialboard})
 
-def editors(request):
-    editorinchief = Editorinchief.objects.all()
+
+def editorinchief_view(request):
+    editorinchief = Editorinchief.objects.get(pk=1)
     return render(request, 'rjikm/editorialboard.html', {'editorinchief': editorinchief})
 
 def submit(request):

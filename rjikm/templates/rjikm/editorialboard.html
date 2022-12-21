@@ -25,9 +25,9 @@
   <div style=" text-align:center; color: white; font-family: Times New Roman, Times, serif; font-size: 20px;">
     <h2 style="text-align:center; color: white;"> Editor-in-Chief</h2>
     <div>
-    {% for editors in editorinchief %}
-        <p> {{editors.FullName}} {{editors.University}} {{editors.MyEmail}}</p>
-    {% endfor %}
+            <p>Full Name: {{ editorinchief.FullName }}</p>
+<p>University: {{ editorinchief.University }}</p>
+<p>Email: {{ editorinchief.MyEmail }}</p>
 
     </div>
   </div>
