@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import ContactForm
+from .models import Editorialboard, Editorinchief
 
 
 # Create your views here.
@@ -37,13 +38,18 @@ def articles(request):
 
 def editorial(request):
     """
-    It takes a request, and returns a response
+    It takes a request, gets all the Editorialboard objects, and then renders the editorialboard.html
+    template with the editorialboard objects
 
-    :param request: The request object is an HttpRequest object. It contains metadata about the request,
-    such as the HTTP method ("GET" or "POST"), the client's IP address, the query parameters, etc
-    :return: the render function.
+    :param request: The request is an HttpRequest object
+    :return: The editorialboard variable is being returned.
     """
-    return render(request, "rjikm/editorialboard.html")
+    editorialboard = Editorialboard.objects.all()
+    return render(request, 'rjikm/editorialboard.html', {'editorialboard': editorialboard})
+
+def editors(request):
+    editorinchief = Editorinchief.objects.all()
+    return render(request, 'rjikm/editorialboard.html', {'editorinchief': editorinchief})
 
 def submit(request):
     """

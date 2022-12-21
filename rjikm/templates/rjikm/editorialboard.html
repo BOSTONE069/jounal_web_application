@@ -1,17 +1,36 @@
 {% extends "rjikm/layouteditorial.html" %}
 
 {% block body %}
-<div style="background-color: maroon;">
-<section>
+<section style="background-color: maroon;">
  <div class="aboutus">
   <h2 style="text-align:center; color: white;"> Editorial Board</h2>
   <p style="text-align:center; color: white;"> This is a biannual open access scholarly journal. All the articles published in the journal are double blind peer reviewed by eminent information and knowledge management scholars. One print special edition is published annually. This edition publishes the most popular articles of the year.</p>
  </div>
 </section>
 
-<section>
-  
+<!-- This is the code that is displaying the editorial board members. -->
+<section style="background-color: maroon;">
+  <div style=" text-align:center; color: white; font-family: Times New Roman, Times, serif; font-size: 20px;">
+    <ol style="display: inline-block; text-align: left">
+        {% for member in editorialboard %}
+        <li style="padding: 5px;" >
+        {{ member.Prefix }} {{ member.FirstName }} {{ member.SecondName }} {{member.University }} {{ member.Country}}
+        </li>
+        {% endfor %}
+      </ol>
+  </div>
 </section>
-</div>
+
+<section style="background-color: maroon;">
+  <div style=" text-align:center; color: white; font-family: Times New Roman, Times, serif; font-size: 20px;">
+    <h2 style="text-align:center; color: white;"> Editor-in-Chief</h2>
+    <div>
+    {% for editors in editorinchief %}
+        <p> {{editors.FullName}} {{editors.University}} {{editors.MyEmail}}</p>
+    {% endfor %}
+
+    </div>
+  </div>
+</section>
 
 {% endblock %}

@@ -75,8 +75,8 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>The Regional Institute of Information and Knowledge Management</h3>
-            <p>
+            <h3 style="text-align: center;">The Regional Institute of Information and Knowledge Management</h3>
+            <p style="text-align: center;">
               P.O. BOX 24358-00100 <br>
               Nairobi<br>
                Kenya <br><br>
@@ -121,6 +121,7 @@
 
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
+          {% csrf_token %}
           &copy; <script>document.write(new Date().getFullYear());</script> Copyright <strong><span>RJIKM</span></strong>. All Rights Reserved
         </div>
         <div class="credits">

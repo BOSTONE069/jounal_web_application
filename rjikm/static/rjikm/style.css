@@ -28,11 +28,10 @@ h6 {
 
 .mission, .vision, .aboutus {
   margin: 30px 20px 0px 20px;
-   padding: 55px 50px 10px 100px;
+  padding: 55px 50px 10px 100px;
   font-family: "Times New Roman", Times, serif;
   font-size: 20px;
 }
-
 .submitform {
    margin: 30px 20px 0px 20px;
    text-align: center;
