@@ -49,7 +49,7 @@
         <ul>
           <li><a href="{% url 'index' %}" class="active">Home</a></li>
 
-          <li class="dropdown"><a href="{% url 'about' %}"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="{% url 'about' %}"><span>About</span></a>
           <li><a href="{% url 'editorial' %}">Editorial Board</a></li>
           <li><a href="{% url 'articles' %}">Articles</a></li>
           <li><a href="{% url 'contact' %}">Contact</a></li>
@@ -68,7 +68,7 @@
   </header><!-- End Header -->
   <!-- ======= Hero Section ======= -->
   <section id="hero">
-    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div id="heroCarousel" data-bs-interval="500" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
       <div class="carousel-inner" role="listbox">
 
@@ -79,7 +79,7 @@
               <h2 style="text-align:center;">Welcome to <span>Regional Journal of Information and Knowledge Management
                   (ISSN 2412-6535)</span></h2>
               <p>This is a biannual open access scholarly journal. All the articles published in the journal are double blind peer reviewed by eminent information and knowledge management scholars</p>
-              <div class="text-center"><a href="" class="btn-get-started">Read More</a></div>
+              <div class="text-center"><a href="{% url 'about' %}" class="btn-get-started">Read More</a></div>
             </div>
           </div>
         </div>
@@ -90,18 +90,18 @@
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2>Lorem Ipsum Dolor</h2>
               <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <div class="text-center"><a href="" class="btn-get-started">Read More</a></div>
+              <div class="text-center"><a href="{% url 'about' %}" class="btn-get-started">Read More</a></div>
             </div>
           </div>
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg);">
+        <div class="carousel-item" style="background-image: url({% static "rjikm/image2.jpg" %});">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2>Sequi ea ut et est quaerat</h2>
               <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <div class="text-center"><a href="" class="btn-get-started">Read More</a></div>
+              <div class="text-center"><a href="{% url 'about' %}" class="btn-get-started">Read More</a></div>
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@
 
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
-          &copy; Copyright <strong><span>RJIKM</span></strong>. All Rights Reserved
+          &copy; <script>document.write(new Date().getFullYear());</script> Copyright <strong><span>RJIKM</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
         </div>

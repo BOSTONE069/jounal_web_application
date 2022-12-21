@@ -48,7 +48,7 @@
         <ul>
           <li><a href="{% url 'index' %}" >Home</a></li>
 
-          <li class="dropdown"><a href="{% url 'about' %}" <span>About</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="{% url 'about' %}" <span>About</span> </a>
           <li><a href="{% url 'editorial' %}" class="active">Editorial Board</a></li>
           <li><a href="{% url 'articles' %}">Articles</a></li>
           <li><a href="{% url 'contact' %}">Contact</a></li>
@@ -121,7 +121,7 @@
 
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
-          &copy; Copyright <strong><span>RJIKM</span></strong>. All Rights Reserved
+          &copy; <script>document.write(new Date().getFullYear());</script> Copyright <strong><span>RJIKM</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
         </div>
