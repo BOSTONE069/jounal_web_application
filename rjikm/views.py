@@ -45,12 +45,11 @@ def editorial(request):
     :return: The editorialboard variable is being returned.
     """
     editorialboard = Editorialboard.objects.all()
-    return render(request, 'rjikm/editorialboard.html', {'editorialboard': editorialboard})
+    editorinchief = Editorinchief.objects.all()
+    return render(request, 'rjikm/editorialboard.html', {'editorialboard': editorialboard, 'editorinchief': editorinchief})
 
 
-def editorinchief_view(request):
-    editorinchief = Editorinchief.objects.get(pk=1)
-    return render(request, 'rjikm/editorialboard.html', {'editorinchief': editorinchief})
+
 
 def submit(request):
     """
