@@ -33,6 +33,35 @@ h6 {
   font-size: 20px;
 }
 
+.submitform {
+   margin: 30px 20px 0px 20px;
+   text-align: center;
+   width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box
+}
+input[type=submit] {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.contactheader {
+  margin: 30px 20px 0px 20px;
+  text-align:center;
+  background-color: maroon;
+  color: white;
+
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
