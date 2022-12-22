@@ -20,6 +20,7 @@ class Editorialboard(models.Model):
 class Editorinchief(models.Model):
     FullName = models.CharField(max_length=100, default='Tom')
     University = models.CharField(max_length=100, default="Technical University of Kenya")
+    Department = models.CharField(max_length=100, default="Information and library Sciences")
     MyEmail = models.CharField(max_length=100, default="tom.kwanya@gmail.com")
 
     def __str__(self):
