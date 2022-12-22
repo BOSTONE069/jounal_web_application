@@ -27,6 +27,7 @@ class Editorinchief(models.Model):
       return f" {self.FullName} {self.University} {self.MyEmail}"
 
 
+# It creates a model for the database.
 class Article(models.Model):
     volume = models.CharField(max_length=100, default="untitled")
     title = models.CharField(max_length=400, default='Untitled')
