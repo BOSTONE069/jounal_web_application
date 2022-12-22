@@ -27,15 +27,18 @@ class Editorinchief(models.Model):
       return f" {self.FullName} {self.University} {self.MyEmail}"
 
 
+# It creates a model for the database.
 class Article(models.Model):
     volume = models.CharField(max_length=100, default="untitled")
     title = models.CharField(max_length=400, default='Untitled')
     author = models.CharField(max_length=100, default='Anonymous')
     university = models.CharField(max_length=100, default='Unknown')
     email = models.EmailField(default='anonymous@example.com')
+    abstract_title = models.CharField(max_length=100, default='Abstract')
     abstract = models.TextField(default='No abstract provided')
+    keyword_title = models.CharField(max_length=100, default="Keyword")
     keywords = models.CharField(max_length=200, default='None')
     titlelink = models.CharField(max_length=400, default='Untitled')
 
     def __str__(self):
-      return f"{self.volume} {self.title} {self.author} {self.university} {self.email} {self.abstract} {self.keywords} {self.titlelink}"
+      return f"{self.volume} {self.title} {self.author} {self.university} {self.email} {self.abstract_title} {self.abstract} {self.keyword_title} {self.keywords} {self.titlelink}"
