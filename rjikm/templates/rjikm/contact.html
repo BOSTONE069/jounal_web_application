@@ -7,7 +7,7 @@
     <p>Ready to start your next project with us? Send us a messages and we will get back to you as soon as possible!</p>
   </div>
 </section>
-<section class="submitform" >
+<section class="submitform" style="background-color: #fff;" >
 <form method="post" action="{% url 'contact' %}">
     {% csrf_token %}
     {{ form.as_p }}
