@@ -13,7 +13,7 @@ class EditorinchiefAdmin(admin.ModelAdmin):
     list_display = ['FullName', 'Department', 'University', 'MyEmail']
 
 class ArticlesAdmin(admin.ModelAdmin):
-    list_display = ['volume', 'title', 'author', 'university', 'email', 'abstract', 'keywords', 'titlelink']
+    list_display = ['volume', 'title', 'author', 'university', 'email', 'abstract_title', 'abstract', 'keyword_title','keywords', 'titlelink']
 
 # Registering the Editorialboard model with the EditorialboardAdmin class.
 admin.site.register(Editorialboard, EditorialboardAdmin)

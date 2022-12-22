@@ -9,9 +9,9 @@
         <p style="text-align:center;"> {{article.author}} </p>
         <p style="text-align:center;"> {{article.university}}</p>
         <p style="text-align:center;"> {{article.email}}</p>
-        <p><strong>Abstract</strong></p>
+        <p><strong>{{article.abstract_title}}</strong></p>
         <p style="text-align:justify;"> {{article.abstract}}</p>
-        <p><strong>Keywords</strong></p>
+        <p><strong>{{article.keyword_title}}</strong></p>
         <p> {{article.keywords}}</p>
         <p> <a href="">{{article.titlelink}}</a></p>
         {% endfor %}
@@ -20,8 +20,3 @@
 
 
 {% endblock %}
-
-['volume', 'title',
-'author', 'university',
-'email', 'abstract',
-'keywords']
