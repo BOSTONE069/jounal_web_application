@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import ContactForm
-from .models import Editorialboard, Editorinchief
+from .models import Editorialboard, Editorinchief, Article
 
 
 # Create your views here.
@@ -29,12 +29,15 @@ def contact(request):
 
 def articles(request):
     """
-    It takes a request, and returns a response
+    It takes a request, gets all the articles from the database, and then renders the articles.html
+    template, passing in the articles
 
-    :param request: The request is an HttpRequest object. It contains metadata about the request
-    :return: the render function.
+    :param request: The request is an HttpRequest object. It contains metadata about the request, such
+    as the client’s IP address, the HTTP method, and the headers
+    :return: The articles.html template is being returned.
     """
-    return render(request, "rjikm/articles.html")
+    articles = Article.objects.all()
+    return render(request, "rjikm/articles.html", {'articles':articles})
 
 def editorial(request):
     """

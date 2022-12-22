@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 # It creates a class called ListItem that has two fields: item and order.
@@ -25,3 +25,17 @@ class Editorinchief(models.Model):
 
     def __str__(self):
       return f" {self.FullName} {self.University} {self.MyEmail}"
+
+
+class Article(models.Model):
+    volume = models.CharField(max_length=100, default="untitled")
+    title = models.CharField(max_length=400, default='Untitled')
+    author = models.CharField(max_length=100, default='Anonymous')
+    university = models.CharField(max_length=100, default='Unknown')
+    email = models.EmailField(default='anonymous@example.com')
+    abstract = models.TextField(default='No abstract provided')
+    keywords = models.CharField(max_length=200, default='None')
+    titlelink = models.CharField(max_length=400, default='Untitled')
+
+    def __str__(self):
+      return f"{self.volume} {self.title} {self.author} {self.university} {self.email} {self.abstract} {self.keywords} {self.titlelink}"

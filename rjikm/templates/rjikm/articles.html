@@ -1,5 +1,27 @@
 {% extends "rjikm/layoutarticles.html" %}
 
 {% block body %}
+<section style="background-color: maroon;">
+ <div style="margin:20px 20px 20px 100px; color:white; font-family: Times New Roman, Times, serif; font-size: 20px">
+     {% for article in articles %}
+        <h2 style="text-align:center;"> {{article.volume}} </h2>
+        <h3 style="text-align:center;"> {{article.title}}</h3>
+        <p style="text-align:center;"> {{article.author}} </p>
+        <p style="text-align:center;"> {{article.university}}</p>
+        <p style="text-align:center;"> {{article.email}}</p>
+        <p><strong>Abstract</strong></p>
+        <p style="text-align:justify;"> {{article.abstract}}</p>
+        <p><strong>Keywords</strong></p>
+        <p> {{article.keywords}}</p>
+        <p> <a href="">{{article.titlelink}}</a></p>
+        {% endfor %}
+ </div>
+</section>
+
 
 {% endblock %}
+
+['volume', 'title',
+'author', 'university',
+'email', 'abstract',
+'keywords']
