@@ -1,12 +1,13 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from .forms import ContactForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import ContactForm, ArticleForm
 from .models import Editorialboard, Editorinchief, Article
 
 
 # Create your views here.
 def index(request):
     return render(request, "rjikm/index.html")
+
 
 def about(request):
     """
@@ -16,6 +17,7 @@ def about(request):
     :return: The about.html page is being returned.
     """
     return render(request, "rjikm/about.html")
+
 
 def contact(request):
     """
@@ -27,6 +29,7 @@ def contact(request):
     """
     return render(request, "rjikm/contact.html")
 
+
 def articles(request):
     """
     It takes a request, gets all the articles from the database, and then renders the articles.html
@@ -37,7 +40,8 @@ def articles(request):
     :return: The articles.html template is being returned.
     """
     articles = Article.objects.all()
-    return render(request, "rjikm/articles.html", {'articles':articles})
+    return render(request, "rjikm/articles.html", {'articles': articles})
+
 
 def editorial(request):
     """
@@ -49,20 +53,20 @@ def editorial(request):
     """
     editorialboard = Editorialboard.objects.all()
     editorinchief = Editorinchief.objects.all()
-    return render(request, 'rjikm/editorialboard.html', {'editorialboard': editorialboard, 'editorinchief': editorinchief})
-
-
+    return render(request, 'rjikm/editorialboard.html',
+                  {'editorialboard': editorialboard, 'editorinchief': editorinchief})
 
 
 def submit(request):
-    """
-    It renders the submit.html template
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('articles')
+    else:
+        form = ArticleForm()
+    return render(request, "rjikm/submitmanuscritpt.html", {'form': form})
 
-    :param request: The request object is the first parameter to the view function. It contains
-    information about the request that was made to the server
-    :return: The submit.html page
-    """
-    return render(request, "rjikm/submit.html")
 
 def contact(request):
     """
@@ -79,3 +83,11 @@ def contact(request):
     else:
         form = ContactForm()
     return render(request, "rjikm/contact.html", {'form': form})
+
+
+def download_article(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+    file = article.pdf_file
+    response = HttpResponse(file, content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="{}"'.format(file.name)
+    return response

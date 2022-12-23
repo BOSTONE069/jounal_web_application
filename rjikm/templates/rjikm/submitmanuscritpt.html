@@ -1,5 +1,26 @@
-{% extends "rjikm/layout.html" %}
+{% extends "rjikm/layoutoutsubmit.html" %}
 
 {% block body %}
-
+<section class="contactheader">
+  <div>
+    <h1>Submission Preparation Checklist</h1>
+    <p style="text-align:justify;">As part of the submission process, authors are required to check off their submission's compliance with all the following items, and submissions may be returned to author that do not adhere to these guidelines.</p>
+      <ol style="display: inline-block; text-align: left">
+          <li style="padding: 5px;">The submission has not been previously published, nor is it before another journal for consideration (or an explanation has been provided in Comments to the Editor).</li>
+          <li style="padding: 5px;">The submission file is in OpenOffice, Microsoft Word, RTF, or WordPerfect document file format.</li>
+          <li style="padding: 5px;">Where available, URLs for the references have been provided.</li>
+          <li style="padding: 5px;">The text is single-spaced; uses a 12-point font; employs italics, rather than underlining (except with URL addresses); and all illustrations, figures, and tables are placed within the text at the appropriate points, rather than at the end.</li>
+          <li style="padding: 5px;">The text adheres to the stylistic and bibliographic requirements outlined in the Author Guidelines, which is found in About the Journal.</li>
+          <li style="padding: 5px;">If submitting to a peer-reviewed section of the journal, the instructions in Ensuring a Blind Review have been followed.</li>
+      </ol>
+  </div>
+</section>
+<section class="submitform" style="background-color: #fff;" >
+<form method="post" enctype="multipart/form-data" action="{% url 'submit' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+</section>
 {% endblock %}
+
