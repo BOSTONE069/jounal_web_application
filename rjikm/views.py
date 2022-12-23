@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactForm, ArticleForm
 from .models import Editorialboard, Editorinchief, Article
-
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -58,11 +58,20 @@ def editorial(request):
 
 
 def submit(request):
+    """
+    If the request is a POST request, then validate the form and save it. If the request is a GET
+    request, then create a new form
+
+    :param request: The request is a HttpRequest object. It contains metadata about the request, such as
+    the HTTP method
+    :return: The form is being returned.
+    """
     if request.method == 'POST':
         form = ArticleForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('articles')
+            messages.success(request, 'Article submitted successfully')
+            return redirect('submit')
     else:
         form = ArticleForm()
     return render(request, "rjikm/submitmanuscritpt.html", {'form': form})
@@ -79,7 +88,7 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             # send email and redirect to success page
-            return redirect('success')
+            return redirect('contacts')
     else:
         form = ContactForm()
     return render(request, "rjikm/contact.html", {'form': form})

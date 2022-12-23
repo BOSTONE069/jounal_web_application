@@ -16,11 +16,18 @@
   </div>
 </section>
 <section class="submitform" style="background-color: #fff;" >
+
 <form method="post" enctype="multipart/form-data" action="{% url 'submit' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Submit">
 </form>
 </section>
+  {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 {% endblock %}
-

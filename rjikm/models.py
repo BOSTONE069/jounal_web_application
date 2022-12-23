@@ -46,6 +46,7 @@ class Article(models.Model):
         return f"{self.volume} {self.title} {self.author} {self.university} {self.email} {self.abstract_title} {self.abstract} {self.keyword_title} {self.keywords} {self.titlelink}"
 
 
+# It creates a model for the database.
 class Submit_article(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
@@ -53,4 +54,4 @@ class Submit_article(models.Model):
     email = models.EmailField()
     abstract = models.TextField()
     keywords = models.CharField(max_length=100)
-    pdf_file = models.FileField(upload_to='articles/')
+    pdf_file = models.FileField(upload_to='rjikm/uploads/')

@@ -10,7 +10,7 @@ urlpatterns = [
     path("articles", views.articles, name="articles"),
     path("contact", views.contact, name="contact"),
     path("submit/", views.submit, name="submit"),
-    path('articles/<int:pk>/download/', views.download_article, name='download_article'),
+    path('rjikm/uploads/<int:pk>/download/', views.download_article, name='uploads'),
 ]
 # default: "Django Administration"
 admin.site.site_header = 'Regional Journal of Information and Knowledge Management'
