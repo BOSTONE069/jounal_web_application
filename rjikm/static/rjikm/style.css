@@ -38,16 +38,17 @@ h6 {
    width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 input[type=submit] {
   background-color: #04AA6D;
-  border: none;
+  border-radius: 8px;
   color: white;
-  padding: 16px 32px;
+  padding: 14px 40px;
   text-decoration: none;
-  margin: 4px 2px;
+  margin: 7px 20px;
   cursor: pointer;
+  width: 250px;
 }
 input[type=submit]:hover {
   background-color: #45a049;
@@ -59,6 +60,12 @@ input[type=submit]:hover {
   background-color: maroon;
   color: white;
 
+}
+.contactform{
+  position: absolute; /* Position the form absolute */
+  top: 50%; /* Place the form 50% from the top */
+  left: 50%; /* Place the form 50% from the left */
+  transform: translate(-50%, -50%); /* Center the form vertically and horizontally */
 }
 
 /*--------------------------------------------------------------

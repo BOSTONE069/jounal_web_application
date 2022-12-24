@@ -1,7 +1,7 @@
 {% extends "rjikm/layoutoutsubmit.html" %}
 
 {% block body %}
-<section class="contactheader">
+<section style="margin: 70px 0px 0px 0px; background-color: maroon; color: #fff; font-size:15px;>
   <div>
     <h1>Submission Preparation Checklist</h1>
     <p style="text-align:justify;">As part of the submission process, authors are required to check off their submission's compliance with all the following items, and submissions may be returned to author that do not adhere to these guidelines.</p>
@@ -20,11 +20,11 @@
 <form method="post" enctype="multipart/form-data" action="{% url 'submit' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" style="width: 300px; border-radius: 8px;">
 </form>
 </section>
   {% if messages %}
-    <ul class="messages">
+    <ul class="messages" style="color:green; list-style-type: none; text-align:center; font-family: "Times New Roman", Times, serif;">
         {% for message in messages %}
             <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
         {% endfor %}

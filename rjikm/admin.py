@@ -9,15 +9,18 @@ from .models import Editorialboard, Editorinchief, Article, Submit_article
 # A class that inherits from the admin.ModelAdmin class.
 class EditorialboardAdmin(admin.ModelAdmin):
     list_display = ['Prefix', 'FirstName', 'SecondName', 'University', 'Country']
-
+    list_filter = ['FirstName', 'SecondName']
+    search_fields = ('FirstName', 'SecondName')
 
 class EditorinchiefAdmin(admin.ModelAdmin):
     list_display = ['FullName', 'Department', 'University', 'MyEmail']
-
+    search_fields = ('FullName__startswith',)
 
 class ArticlesAdmin(admin.ModelAdmin):
     list_display = ['volume', 'title', 'author', 'university', 'email', 'abstract_title', 'abstract', 'keyword_title',
                     'keywords', 'titlelink']
+    list_filter = ["title"]
+    search_fields = ('volume', 'title', 'author', 'university')
 
 
 class SubmittedAdmin(admin.ModelAdmin):

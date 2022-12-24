@@ -1,17 +1,19 @@
 {% extends "rjikm/layoutcontact.html" %}
 
 {% block body %}
-<section class="contactheader">
+<section style="margin: 70px 0px 0px 0px; background-color: maroon; color: #fff; font-size:20px; text-align:center;">
   <div>
     <h1>Let's Get In Touch!</h1>
     <p>Ready to start your next project with us? Send us a messages and we will get back to you as soon as possible!</p>
   </div>
 </section>
-<section class="submitform" style="background-color: #fff;" >
-<form method="post" action="{% url 'contact' %}">
+<section class="submitform" style="background-color: maroon; margin: 0px 0px 0px 0px;" >
+<div style="color: #fff;">
+  <form method="post" action="{% url 'contact' %}" class="contactform">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Send">
+    <input type="submit" value="Send" style="width: 300px; border-radius: 8px;">
 </form>
+</div>
 </section>
 {% endblock %}
