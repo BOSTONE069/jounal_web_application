@@ -15,14 +15,17 @@
       </ol>
   </div>
 </section>
-<section class="submitform" >
-
-<form method="post" enctype="multipart/form-data" action="{% url 'submit' %}">
+<section style="background-color:maroon; color:white; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px">
+   <h1 style="text-align:left;">Submit Manuscript Here</h1>
+<form method="post" enctype="multipart/form-data" action="{% url 'submit' %}" style="padding: 0px 0px 0px 150px"">
     {% csrf_token %}
-    <div style="margin: 0px 1000px 0px 100px;" >
-    {{ form.as_p }}
-    </div>
-    <input type="submit" value="Submit" style="width: 300px; border-radius: 8px;">
+   {% for field in form %}
+        <div class="row mb-3">
+            {{ field.label_tag }}
+            {{ field }}
+        </div>
+    {% endfor %}
+    <input type="submit" value="Submit" style="width: 200px; border-radius: 8px;">
 </form>
 
 </section>

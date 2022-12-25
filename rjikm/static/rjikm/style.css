@@ -64,7 +64,17 @@ input[type=submit]:hover {
   color: #ffffff;
 
 }
-
+.form-center2 {
+  position: relative;
+  width:100%;
+  height:10em;
+}
+.form-center2 form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
 
 /*--------------------------------------------------------------
 # Back to top button
