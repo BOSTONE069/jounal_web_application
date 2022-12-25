@@ -33,40 +33,38 @@ h6 {
   font-size: 20px;
 }
 .submitform {
-   margin: 30px 20px 0px 20px;
+   margin: 0px 0px 0px 0px;
    text-align: center;
    width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 20px 20px;
+  margin: 0px 0;
   box-sizing: border-box;
+   background-color: #800000;
+   color: #ffffff;
 }
 input[type=submit] {
   background-color: #04AA6D;
-  border-radius: 8px;
-  color: white;
-  padding: 14px 40px;
+  border: none;
+  color: #ffffff;
   text-decoration: none;
-  margin: 7px 20px;
+  padding: 20px 20px;
+  margin: 4px 5px 0px 100px;
   cursor: pointer;
-  width: 250px;
 }
+
 input[type=submit]:hover {
   background-color: #45a049;
 }
 
 .contactheader {
-  margin: 30px 20px 0px 20px;
+  padding: 80px 20px;
+  margin: 40px 0px 0px 0px;
   text-align:center;
-  background-color: maroon;
-  color: white;
+  background-color: #800000;
+  color: #ffffff;
 
 }
-.contactform{
-  position: absolute; /* Position the form absolute */
-  top: 50%; /* Place the form 50% from the top */
-  left: 50%; /* Place the form 50% from the left */
-  transform: translate(-50%, -50%); /* Center the form vertically and horizontally */
-}
+
 
 /*--------------------------------------------------------------
 # Back to top button

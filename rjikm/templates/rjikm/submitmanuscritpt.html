@@ -1,11 +1,11 @@
 {% extends "rjikm/layoutoutsubmit.html" %}
 
 {% block body %}
-<section style="margin: 70px 0px 0px 0px; background-color: maroon; color: #fff; font-size:15px;>
+<section style="margin: 70px 0px 0px 0px; background-color: maroon; color: #fff; font-size:18px; font-family: Times New Roman, Times, serif;">
   <div>
-    <h1>Submission Preparation Checklist</h1>
-    <p style="text-align:justify;">As part of the submission process, authors are required to check off their submission's compliance with all the following items, and submissions may be returned to author that do not adhere to these guidelines.</p>
-      <ol style="display: inline-block; text-align: left">
+    <h1 style="text-align:center;">Submission Preparation Checklist</h1>
+    <p style="text-align:center;">As part of the submission process, authors are required to check off their submission's compliance with all the following items, and submissions may be returned to author that do not adhere to these guidelines.</p>
+      <ol style="display: inline-block; text-align: left; margin: 0px 80px 0px 80px;">
           <li style="padding: 5px;">The submission has not been previously published, nor is it before another journal for consideration (or an explanation has been provided in Comments to the Editor).</li>
           <li style="padding: 5px;">The submission file is in OpenOffice, Microsoft Word, RTF, or WordPerfect document file format.</li>
           <li style="padding: 5px;">Where available, URLs for the references have been provided.</li>
@@ -15,13 +15,16 @@
       </ol>
   </div>
 </section>
-<section class="submitform" style="background-color: #fff;" >
+<section class="submitform" >
 
 <form method="post" enctype="multipart/form-data" action="{% url 'submit' %}">
     {% csrf_token %}
+    <div style="margin: 0px 1000px 0px 100px;" >
     {{ form.as_p }}
+    </div>
     <input type="submit" value="Submit" style="width: 300px; border-radius: 8px;">
 </form>
+
 </section>
   {% if messages %}
     <ul class="messages" style="color:green; list-style-type: none; text-align:center; font-family: "Times New Roman", Times, serif;">
