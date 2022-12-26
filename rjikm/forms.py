@@ -10,8 +10,10 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = ['name', 'email', 'message']
 
-        widget = {
-            'message': Textarea(attrs={"placeholder": "Enter your message here..."})
+        widgets = {
+            'name': TextInput(attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your name', 'style': 'width:600px'}),
+            'email': EmailInput(attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your email', 'style': 'width:600px;'}),
+            'message': Textarea(attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your message here...', 'style': 'width:600px;'})
         }
 
 
