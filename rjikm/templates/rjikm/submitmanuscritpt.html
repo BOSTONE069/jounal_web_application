@@ -17,7 +17,7 @@
 </section>
 <section style="background-color:maroon; color:white; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px">
    <h1 style="text-align:left;">Submit Manuscript Here</h1>
-<form method="post" enctype="multipart/form-data" action="{% url 'submit' %}" style="padding: 0px 0px 0px 150px"">
+<form method="post" enctype="multipart/form-data" action="{% url 'submit' %}" style="padding: 0px 0px 0px 150px">
     {% csrf_token %}
    {% for field in form %}
         <div class="row mb-3">
