@@ -12,7 +12,7 @@
   <form method="post" action="{% url 'contact' %}">
     {% csrf_token %}
    {% for field in form %}
-        <div class="form-group">
+        <div class="row mb-3">
             {{ field.label_tag }}
             {{ field }}
         </div>
@@ -21,4 +21,11 @@
 </form>
 </div>
 </section>
+{% if messages %}
+    <ul class="messages" style="color:green; list-style-type: none; text-align:center; font-family: "Times New Roman", Times, serif;">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 {% endblock %}
