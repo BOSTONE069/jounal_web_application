@@ -19,10 +19,11 @@ class EditorinchiefAdmin(admin.ModelAdmin):
 
 
 class ArticlesAdmin(admin.ModelAdmin):
-    list_display = ['volume', 'title', 'author', 'university', 'email', 'abstract_title', 'abstract', 'keyword_title',
+    list_display = ['volume', 'title', 'author1',  'department1', 'university1', 'email1', 'author2',  'department1', 'university2', 'email2', 'abstract_title', 'abstract', 'keyword_title',
                     'keywords', 'titlelink']
     list_filter = ["title"]
-    search_fields = ('volume', 'title', 'author', 'university')
+    search_fields = ('volume', 'title', 'author1',  'department1',
+                     'university1', 'author2',  'department1', 'university2')
 
 
 class SubmittedAdmin(admin.ModelAdmin):

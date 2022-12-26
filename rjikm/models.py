@@ -33,9 +33,14 @@ class Editorinchief(models.Model):
 class Article(models.Model):
     volume = models.CharField(max_length=100, default="untitled")
     title = models.CharField(max_length=400, default='Untitled')
-    author = models.CharField(max_length=100, default='Anonymous')
-    university = models.CharField(max_length=100, default='Unknown')
-    email = models.EmailField(default='anonymous@example.com')
+    author1 = models.CharField(max_length=100, default='Anonymous')
+    university1 = models.CharField(max_length=100, default='Unknown')
+    department1 = models.CharField(max_length=100, default='Unknown')
+    email1 = models.EmailField(default='anonymous@example.com')
+    author2 = models.CharField(max_length=100, default='Anonymous')
+    department2 = models.CharField(max_length=100, default='Unknown')
+    university2 = models.CharField(max_length=100, default='Unknown')
+    email2 = models.EmailField(default='anonymous@example.com')
     abstract_title = models.CharField(max_length=100, default='Abstract')
     abstract = models.TextField(default='No abstract provided')
     keyword_title = models.CharField(max_length=100, default="Keyword")
@@ -43,8 +48,7 @@ class Article(models.Model):
     titlelink = models.CharField(max_length=400, default='Untitled')
 
     def __str__(self):
-        return f"{self.volume} {self.title} {self.author} {self.university} {self.email} {self.abstract_title} {self.abstract} {self.keyword_title} {self.keywords} {self.titlelink}"
-
+         return f"{self.volume} {self.title} {self.author1} {self.author2} {self.university1} {self.university2} {self.email1} {self.email2} {self.abstract_title} {self.abstract} {self.keyword_title} {self.keywords} {self.titlelink}"
 
 # It creates a model for the database.
 class Submit_article(models.Model):
