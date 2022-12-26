@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactForm, ArticleForm
 from .models import Editorialboard, Editorinchief, Article
 from django.contrib import messages
+from django.core.mail import send_mail
+
 
 # Create your views here.
 def index(request):
@@ -78,17 +80,21 @@ def submit(request):
 
 
 def contact(request):
-    """
-    If the form is valid, send the email and redirect to the success page
-
-    :param request: The current HTTP Request object
-    :return: The form is being returned.
-    """
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
+            form.save()
+            # Send an email to the admins
+            send_mail(
+                'New Contact Form Submission',  # Subject
+                form.cleaned_data['message'],  # Message
+                form.cleaned_data['email'],  # From email
+                ['bostoneochieng@gmail.com'],  # List of recipient emails
+                fail_silently=True,
+            )
+            messages.success(request, 'Message Sent Successfully')
             # send email and redirect to success page
-            return redirect('contacts')
+            return redirect('contact')
     else:
         form = ContactForm()
     return render(request, "rjikm/contact.html", {'form': form})
