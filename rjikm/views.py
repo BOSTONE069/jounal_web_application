@@ -4,6 +4,7 @@ from .forms import ContactForm, ArticleForm
 from .models import Editorialboard, Editorinchief, Article
 from django.contrib import messages
 
+
 # Create your views here.
 def index(request):
     return render(request, "rjikm/index.html")
@@ -87,8 +88,10 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
+            form.save()
+            messages.success(request, 'Message Sent Successfully')
             # send email and redirect to success page
-            return redirect('contacts')
+            return redirect('contact')
     else:
         form = ContactForm()
     return render(request, "rjikm/contact.html", {'form': form})
