@@ -55,3 +55,9 @@ class Submit_article(models.Model):
     abstract = models.TextField()
     keywords = models.CharField(max_length=100)
     pdf_file = models.FileField(upload_to='rjikm/uploads/')
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    message = models.TextField()
