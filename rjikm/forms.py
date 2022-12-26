@@ -1,16 +1,17 @@
-import formatter
 from django import forms
 from django.forms import ClearableFileInput
-from .models import Submit_article
+from .models import Submit_article, Contact
 from django.forms import Textarea, ClearableFileInput, TextInput, EmailInput
 
 
-class ContactForm(forms.Form):
-    name = forms.CharField(max_length=255)
-    email = forms.EmailField()
-    message = forms.CharField(widget=forms.Textarea(attrs={
-        "placeholder": "Enter your message here...",
-    }))
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['name', 'email', 'message']
+
+        widget = {
+            'message': Textarea(attrs={"placeholder": "Enter your message here..."})
+        }
 
 
 class ArticleForm(forms.ModelForm):
