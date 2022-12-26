@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 
 
+
 # Create your views here.
 def index(request):
     return render(request, "rjikm/index.html")
