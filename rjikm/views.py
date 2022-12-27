@@ -107,3 +107,6 @@ def download_article(request, pk):
     response = HttpResponse(file, content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="{}"'.format(file.name)
     return response
+
+def authorInstructions(request):
+    return render(request, "rjikm/authorinstructions.html")

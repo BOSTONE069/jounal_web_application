@@ -10,6 +10,7 @@ urlpatterns = [
     path("articles", views.articles, name="articles"),
     path("contact", views.contact, name="contact"),
     path("submit/", views.submit, name="submit"),
+    path("authorInstructions", views.authorInstructions, name="authorInstructions"),
     path('rjikm/uploads/<int:pk>/download/', views.download_article, name='uploads'),
 ]
 # default: "Django Administration"

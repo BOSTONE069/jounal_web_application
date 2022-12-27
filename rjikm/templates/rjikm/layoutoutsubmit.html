@@ -51,6 +51,7 @@
           <li class="dropdown"><a href="{% url 'about' %}" ><span>About</span> </a>
           <li><a href="{% url 'editorial' %}">Editorial Board</a></li>
           <li><a href="{% url 'articles' %}">Articles</a></li>
+          <li><a href="{% url 'authorInstructions' %}"> Instructions to Authors</a></li>
           <li><a href="{% url 'submit' %}" class="active">Submit Manuscript</a></li>
           <li><a href="{% url 'contact' %}" >Contact</a></li>
         </ul>
@@ -98,11 +99,11 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Editorial Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'authorInstructions' %}">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact' %}">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'submit' %}">Submit Manuscript</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Archive</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'editorial' %}">Editorial Services</a></li>
             </ul>
           </div>
 

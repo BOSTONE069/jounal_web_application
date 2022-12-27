@@ -1,7 +1,7 @@
 {% extends "rjikm/layoutoutsubmit.html" %}
 
 {% block body %}
-<section style="margin: 70px 0px 0px 0px; background-color: maroon; color: #fff; font-size:18px; font-family: Times New Roman, Times, serif;">
+<section style="margin: 70px 0px 0px 0px; background-color: maroon; color: #fff; font-size:20px; font-family: Times New Roman, Times, serif;">
   <div>
     <h1 style="text-align:center;">Submission Preparation Checklist</h1>
     <p style="text-align:center;">As part of the submission process, authors are required to check off their submission's compliance with all the following items, and submissions may be returned to author that do not adhere to these guidelines.</p>
@@ -15,9 +15,9 @@
       </ol>
   </div>
 </section>
-<section style="background-color:maroon; color:white; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px">
+<section class="submitform" >
    <h1 style="text-align:center;">Submit Manuscript Here</h1>
-<form method="post" enctype="multipart/form-data" action="{% url 'submit' %}" style="padding: 0px 0px 0px 380px">
+<form method="post" enctype="multipart/form-data" action="{% url 'submit' %}">
     {% csrf_token %}
    {% for field in form %}
         <div class="row mb-3">
@@ -25,7 +25,7 @@
             {{ field }}
         </div>
     {% endfor %}
-    <input type="submit" value="Submit" style="width: 300px; border-radius: 8px;">
+    <input type="submit" value="Submit" style="width: 300px; border-radius: 8px; margin: 0px 20px 0px 0px">
 </form>
 
 </section>
