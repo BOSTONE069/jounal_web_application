@@ -1,5 +1,4 @@
 from django.db import models
-from ckeditor.fields import RichTextField
 
 
 # Create your models here.
@@ -48,7 +47,8 @@ class Article(models.Model):
     titlelink = models.CharField(max_length=400, default='Untitled')
 
     def __str__(self):
-         return f"{self.volume} {self.title} {self.author1} {self.author2} {self.university1} {self.university2} {self.email1} {self.email2} {self.abstract_title} {self.abstract} {self.keyword_title} {self.keywords} {self.titlelink}"
+        return f"{self.volume} {self.title} {self.author1} {self.author2} {self.university1} {self.university2} {self.email1} {self.email2} {self.abstract_title} {self.abstract} {self.keyword_title} {self.keywords} {self.titlelink}"
+
 
 # It creates a model for the database.
 class Submit_article(models.Model):
