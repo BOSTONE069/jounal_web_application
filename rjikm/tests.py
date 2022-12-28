@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 # Create your tests here.
-from .models import Editorinchief, Editorialboard, Article
+from .models import Editorinchief, Editorialboard, Article, Contact
 
 
 # It creates an Editorinchief object with the given attributes.
@@ -66,6 +66,10 @@ def test_get_method(self):
 
 
 def test_create_article_with_defaults(self):
+  """
+  The function creates an article object and then checks to see if the default values are set
+  correctly
+  """
     article = Article.objects.create()
     self.assertEqual(article.volume, "untitled")
     self.assertEqual(article.title, "Untitled")
@@ -85,6 +89,9 @@ def test_create_article_with_defaults(self):
 
 
 def test_create_article_with_non_defaults(self):
+  """
+  It creates an article with non-default values.
+  """
     article = Article.objects.create(
         volume="Volume 1",
         title="My Article",
@@ -117,3 +124,30 @@ def test_create_article_with_non_defaults(self):
     self.assertEqual(article.keyword_title, "Keyword Title")
     self.assertEqual(article.keywords, "keyword1, keyword2")
     self.assertEqual(article.titlelink, "My Article Link")
+
+
+def test_create_contact_with_valid_values(self):
+  """
+  It creates a contact object with the given values.
+  """
+    contact = Contact.objects.create(
+        name="John Doe",
+        email="john.doe@example.com",
+        message="This is a test message."
+    )
+    self.assertEqual(contact.name, "John Doe")
+    self.assertEqual(contact.email, "john.doe@example.com")
+    self.assertEqual(contact.message, "This is a test message.")
+
+
+def test_create_contact_with_invalid_email(self):
+  """
+  using the Django TestCase class to create a test function that will test the Contact model's
+  create function
+  """
+    with self.assertRaises(ValidationError):
+        Contact.objects.create(
+            name="John Doe",
+            email="invalid-email",
+            message="This is a test message."
+        )

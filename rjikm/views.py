@@ -80,6 +80,15 @@ def submit(request):
 
 
 def contact(request):
+    """
+    If the request is a POST request, then validate the form and send an email to the admins.
+    If the request is a GET request, then render the form.
+
+    :param request: The request object is the first parameter to all Django views. It contains metadata
+    about the request, such as the HTTP method ("GET" or "POST"), the client's IP address, the query
+    parameters, and more
+    :return: a render object.
+    """
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -109,4 +118,11 @@ def download_article(request, pk):
 
 
 def authorInstructions(request):
+    """
+    It takes a request, and returns a response
+
+    :param request: The request object is a Python object that contains metadata about the request sent
+    to the server
+    :return: The authorInstructions function is returning the authorinstructions.html page.
+    """
     return render(request, "rjikm/authorinstructions.html")
