@@ -13,6 +13,7 @@ class EditorialboardAdmin(admin.ModelAdmin):
     search_fields = ('FirstName', 'SecondName')
 
 
+# The class EditorinchiefAdmin is a subclass of the class ModelAdmin
 class EditorinchiefAdmin(admin.ModelAdmin):
     list_display = ['FullName', 'Department', 'University', 'MyEmail']
     search_fields = ('FullName__startswith',)
