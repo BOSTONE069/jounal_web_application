@@ -131,22 +131,25 @@ def authorInstructions(request):
 
 def vol7articles(request):
     """
-    It takes a request, gets all the articles from the database, and then renders the template "rjikm/vol7articles.html"
-    with the articles
+    It's a function that takes a request and returns a render of the vol7articles.html template with the articles variable
+    set to the articles variable
 
-    :param request: This is the request object that is sent to the view
+    :param request: The request is an HttpRequest object. It contains metadata about the request
     :return: The articles are being returned.
     """
     articles = Article.objects.all()
+    vol7_articles = []
+    for article in articles:
+        if vol7_articles == 'Vol. 7 No.1 (2022)':
+            vol7_articles.append(article)
     return render(request, "rjikm/vol7articles.html", {'articles': articles})
 
 
-def view_function(request):
-    # Get the model instance that you want to render
-    model_instance = Article.objects.get()
-
-    # Get the value of the volume field using the .volume attribute
-    volume = model_instance.volume
-
-    # Render the volume on the website
-    return render(request, "rjikm/articles.html", {'volume': volume})
+def vol6_no2_articles(request):
+    articles = Article.objects.all()
+    vol6_no2_articles = []
+    for article in articles:
+        if vol6_no2_articles == "Vol. 6 No. 2 (2021)":
+            vol6_no2_articles.append(article)
+    context = {'articles': articles}
+    return render(request, "rjikm/vol6articles.html", context)

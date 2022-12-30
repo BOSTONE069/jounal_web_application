@@ -11,7 +11,8 @@ urlpatterns = [
     path("contact", views.contact, name="contact"),
     path("submit/", views.submit, name="submit"),
     path("authorInstructions", views.authorInstructions, name="authorInstructions"),
-    path(" vol7articles/", views.vol7articles, name="vol7articles"),
+    path("vol7articles/", views.vol7articles, name="vol7articles"),
+    path("vol6_no2_articles", views.vol6_no2_articles, name="vol6_no2_articles"),
     path('rjikm/uploads/<int:pk>/download/', views.download_article, name='uploads'),
 ]
 # default: "Django Administration"

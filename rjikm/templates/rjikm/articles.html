@@ -1,14 +1,22 @@
 {% extends "rjikm/layoutarticles.html" %}
 
 {% block body %}
-<section style="background-color: maroon; margin:0px 0px 0px 0px; padding: 150px 0px 200px;">
+<section style="background-color: maroon; margin:0px 0px 0px 0px; padding: 100px 0px 80px;">
   <div style=" text-align:center; color: white; font-family: Times New Roman, Times, serif; font-size: 24px;">
-      <h2 style="text-align:center;"> {{ volume }} </h2>
-    <ol style="display: inline-block; text-align: left">
+
+    <ol style="display: inline-block; text-align: center; list-style: none;">
         {% for article in articles %}
+        {% if article.volume == 'Vol. 7 No.1 (2022)'%}
+        <h2 style="text-align:center;"> {{article.volume }} </h2>
         <li style="padding: 5px;" >
-        <a href="{% url 'vol7articles' %}" style="text-align: left; color: wheat;"> {{article.title}}</a>
+        <a href="{% url 'vol7articles' %}" style="text-align: left; color: wheat;" target="_blank"> {{article.title}}</a>
         </li>
+        {% else %}
+        <h2 style="text-align:center;"> {{article.volume }} </h2>
+        <li style="padding: 5px;" >
+        <a href="{% url 'vol6_no2_articles' %}" style="text-align: left; color: wheat;" target="_blank">{{article.title}}</a>
+        </li>
+        {% endif %}
         {% endfor %}
       </ol>
   </div>
