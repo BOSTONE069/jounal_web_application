@@ -4,6 +4,7 @@ from .forms import ContactForm, ArticleForm
 from .models import Editorialboard, Editorinchief, Article
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.forms.models import model_to_dict
 
 
 # Create your views here.
@@ -126,3 +127,26 @@ def authorInstructions(request):
     :return: The authorInstructions function is returning the authorinstructions.html page.
     """
     return render(request, "rjikm/authorinstructions.html")
+
+
+def vol7articles(request):
+    """
+    It takes a request, gets all the articles from the database, and then renders the template "rjikm/vol7articles.html"
+    with the articles
+
+    :param request: This is the request object that is sent to the view
+    :return: The articles are being returned.
+    """
+    articles = Article.objects.all()
+    return render(request, "rjikm/vol7articles.html", {'articles': articles})
+
+
+def view_function(request):
+    # Get the model instance that you want to render
+    model_instance = Article.objects.get()
+
+    # Get the value of the volume field using the .volume attribute
+    volume = model_instance.volume
+
+    # Render the volume on the website
+    return render(request, "rjikm/articles.html", {'volume': volume})

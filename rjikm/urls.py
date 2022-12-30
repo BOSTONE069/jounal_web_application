@@ -7,10 +7,11 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("about", views.about, name="about"),
     path("editorial/", views.editorial, name="editorial"),
-    path("articles", views.articles, name="articles"),
+    path("articles", views. articles, name="articles"),
     path("contact", views.contact, name="contact"),
     path("submit/", views.submit, name="submit"),
     path("authorInstructions", views.authorInstructions, name="authorInstructions"),
+    path(" vol7articles/", views.vol7articles, name="vol7articles"),
     path('rjikm/uploads/<int:pk>/download/', views.download_article, name='uploads'),
 ]
 # default: "Django Administration"
