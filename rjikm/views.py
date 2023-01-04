@@ -171,7 +171,7 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('login_success')
+                return redirect('submit')
     else:
         form = AuthenticationForm()
     return render(request, 'rjikm/login.html', {'form': form})
@@ -205,7 +205,7 @@ def register_view(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('register_success')
+            return redirect('submit')
     else:
         form = UserCreationForm()
     return render(request, 'rjikm/register.html', {'form': form})
