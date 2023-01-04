@@ -1,19 +1,18 @@
 {% extends "rjikm/layoutoutsubmit.html" %}
-
+{%load crispy_forms_tags %}
 {% block body %}
-<section>
+{% load static %}
+<div style="width:2000px; height:600px; background-image: url({% static 'rjikm/image2.jpeg' %}); background-size: cover; background-position: center; background-repeat: no-repeat;  color: blue;">
+<div style="margin: 100px 600px 20px 600px; padding: 70px;" >
   <h1>Sign up</h1>
 
   <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form|crispy }}
   <button type="submit" class="btn btn-primary">Sign up</button>
 </form>
 
 <p>Already have an account? <a href="{% url 'login' %}">Log in</a>.</p>
-</section>
-
-
-
-
+</div>
+</div>
 {% endblock %}
