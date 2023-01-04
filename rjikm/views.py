@@ -4,7 +4,8 @@ from .forms import ContactForm, ArticleForm
 from .models import Editorialboard, Editorinchief, Article
 from django.contrib import messages
 from django.core.mail import send_mail
-from django.forms.models import model_to_dict
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 
 # Create your views here.
@@ -153,3 +154,58 @@ def vol6_no2_articles(request):
             vol6_no2_articles.append(article)
     context = {'articles': articles}
     return render(request, "rjikm/vol6articles.html", context)
+
+
+def login_view(request):
+    """
+    If the request method is POST, then validate the form and log the user in
+
+    :param request: The current request object
+    :return: The login.html page is being returned.
+    """
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('login_success')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'rjikm/login.html', {'form': form})
+
+
+def logout_view(request):
+    """
+    It logs the user out and redirects them to the logout_success view
+
+    :param request: The current request object
+    :return: The logout_view function is returning a redirect to the logout_success view.
+    """
+    logout(request)
+    return redirect('logout_success')
+
+
+def register_view(request):
+    """
+    If the request method is POST, then we create a form object from the submitted data and save it to the database if it's
+    valid. If the form is not valid, we re-render the template with the form object and any error messages. If the request
+    method is not POST, then we create an empty form object and render it in the template
+
+    :param request: The current request object
+    :return: The render function is being returned.
+    """
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('register_success')
+    else:
+        form = UserCreationForm()
+    return render(request, 'rjikm/register.html', {'form': form})
