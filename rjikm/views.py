@@ -185,7 +185,7 @@ def logout_view(request):
     :return: The logout_view function is returning a redirect to the logout_success view.
     """
     logout(request)
-    return redirect('logout_success')
+    return redirect('login_view')
 
 
 def register_view(request):
