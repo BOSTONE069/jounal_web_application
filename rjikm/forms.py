@@ -11,9 +11,13 @@ class ContactForm(forms.ModelForm):
         fields = ['name', 'email', 'message']
 
         widgets = {
-            'name': TextInput(attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your name', 'style': 'width:600px'}),
-            'email': EmailInput(attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your email', 'style': 'width:600px;'}),
-            'message': Textarea(attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your message here...', 'style': 'width:600px;'})
+            'name': TextInput(attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your name',
+                                     'style': 'width:600px'}),
+            'email': EmailInput(attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your email',
+                                       'style': 'width:600px;'}),
+            'message': Textarea(
+                attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your message here...',
+                       'style': 'width:600px;'})
         }
 
 
@@ -24,17 +28,27 @@ class ArticleForm(forms.ModelForm):
         fields = ['title', 'author', 'university',
                   'email', 'abstract', 'keywords', 'pdf_file']
         widgets = {
-            'title': TextInput(attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter the title of the article',
-                                      'style': 'width:600px;'}),
+            'title': TextInput(
+                attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter the title of the article',
+                       'style': 'width:600px;'}),
             'author': TextInput(
-                attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your full name', 'style': 'width:600px;'}),
-            'university': TextInput(attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter the name of your instituion',
-                                           'style': 'width:600px;'}),
+                attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your full name',
+                       'style': 'width:600px;'}),
+            'university': TextInput(
+                attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter the name of your instituion',
+                       'style': 'width:600px;'}),
             'email': EmailInput(
-                attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your email address', 'style': 'width:600px;'}),
-            'abstract': Textarea(attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter abstract of the article',
-                                        'style': 'width:600px;'}),
+                attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter your email address',
+                       'style': 'width:600px;'}),
+            'abstract': Textarea(
+                attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter abstract of the article',
+                       'style': 'width:600px;'}),
             'keywords': TextInput(
-                attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter the article keywords', 'style': 'width:600px;'}),
-            'pdf_file': ClearableFileInput(attrs={'class': 'form-control col-md-8 offset-md-5', 'style': 'width:300px;'}),
+                attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter the article keywords',
+                       'style': 'width:600px;'}),
+            'pdf_file': ClearableFileInput(
+                attrs={'class': 'form-control col-md-8 offset-md-5', 'style': 'width:300px;'}),
         }
+
+
+
