@@ -1,15 +1,18 @@
-{% extends "rjikm/layoutvol7articles.html" %}
+{% extends "rjikm/layoutoutsubmit.html" %}
 
 {% block body %}
-
-<h1>Log in</h1>
-
-<form method="post">
+{% load static %}
+<div class="container-fluid" style=" background-image: url({% static 'rjikm/background-image.jpg' %}); background-size: cover; background-repeat: no-repeat;  color: #fff;">
+ <div style="margin: 100px 20px 20px 300px">
+  <h1>Log in</h1>
+<div >
+  <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form|crispy }}
   <button type="submit" class="btn btn-primary">Log in</button>
-</form>
-
-<p>Don't have an account? <a href="{% url 'register' %}">Sign up</a>.</p>
-
+  </form>
+   <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a>.</p>
+</div>
+   </div>
+</div>
 {% endblock %}
