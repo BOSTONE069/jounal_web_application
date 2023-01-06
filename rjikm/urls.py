@@ -1,6 +1,7 @@
 from django.urls import path
 from django.contrib import admin
-
+from django.conf.urls.static import static
+from django.conf import settings
 from . import views
 
 urlpatterns = [
@@ -16,8 +17,9 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('register/', views.register_view, name='register'),
+    path('view_pdf/<int:id>', views.view_pdf, name='view_pdf'),
     path('rjikm/uploads/<int:pk>/download/', views.download_article, name='uploads'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # default: "Django Administration"
 admin.site.site_header = 'Regional Journal of Information and Knowledge Management'
 # default: "Site administration"
