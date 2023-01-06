@@ -209,3 +209,15 @@ def register_view(request):
     else:
         form = UserCreationForm()
     return render(request, 'rjikm/register.html', {'form': form})
+
+
+def view_pdf(request, id):
+    # Get the article object
+    article = Article.objects.get(id=id)
+
+    # Open the PDF file
+    with open(article.pdf_doc.path, 'rb') as f:
+        # Create an HttpResponse object with the PDF file as the content
+        response = HttpResponse(f.read(), content_type='application/pdf')
+        response['Content-Disposition'] = 'inline;filename=article.pdf'
+        return response
