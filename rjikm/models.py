@@ -45,6 +45,7 @@ class Article(models.Model):
     keyword_title = models.CharField(max_length=100, default="Keyword")
     keywords = models.CharField(max_length=200, default='None')
 
+
     def __str__(self):
         return f"{self.volume} {self.title} {self.author1} {self.author2} {self.university1} {self.university2} {self.email1} {self.email2} {self.abstract_title} {self.abstract} {self.keyword_title} {self.keywords}"
 
