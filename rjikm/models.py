@@ -44,10 +44,9 @@ class Article(models.Model):
     abstract = models.TextField(default='No abstract provided')
     keyword_title = models.CharField(max_length=100, default="Keyword")
     keywords = models.CharField(max_length=200, default='None')
-    titlelink = models.CharField(max_length=400, default='Untitled')
 
     def __str__(self):
-        return f"{self.volume} {self.title} {self.author1} {self.author2} {self.university1} {self.university2} {self.email1} {self.email2} {self.abstract_title} {self.abstract} {self.keyword_title} {self.keywords} {self.titlelink}"
+        return f"{self.volume} {self.title} {self.author1} {self.author2} {self.university1} {self.university2} {self.email1} {self.email2} {self.abstract_title} {self.abstract} {self.keyword_title} {self.keywords}"
 
 
 # It creates a model for the database.
