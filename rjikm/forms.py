@@ -26,7 +26,7 @@ class ArticleForm(forms.ModelForm):
     class Meta:
         model = Submit_article
         fields = ['title', 'author', 'university',
-                  'email', 'abstract', 'keywords', 'pdf_file']
+                  'email', 'abstract', 'keywords', 'doc_file']
         widgets = {
             'title': TextInput(
                 attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter the title of the article',
@@ -46,7 +46,7 @@ class ArticleForm(forms.ModelForm):
             'keywords': TextInput(
                 attrs={'class': 'form-control col-md-4 offset-md-4', 'placeholder': 'Enter the article keywords',
                        'style': 'width:600px;'}),
-            'pdf_file': ClearableFileInput(
+            'doc_file': ClearableFileInput(
                 attrs={'class': 'form-control col-md-8 offset-md-5', 'style': 'width:300px;'}),
         }
 
