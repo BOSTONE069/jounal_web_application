@@ -21,8 +21,9 @@ class EditorinchiefAdmin(admin.ModelAdmin):
 
 class ArticlesAdmin(admin.ModelAdmin):
     list_display = (
-        'volume', 'title', 'author1', 'department1', 'university1', 'email1', 'author2', 'department1', 'university2',
-        'email2', 'abstract_title', 'abstract', 'keyword_title',
+        'volume', 'title', 'author1', 'department1', 'university1', 'email1', 'author2', 'department2', 'university2',
+        'email2', 'author3', 'department3', 'university3',
+        'email3', 'abstract_title', 'abstract', 'keyword_title',
         'keywords', 'pdf_doc')
     list_filter = ["title"]
     search_fields = ('volume', 'title', 'author1', 'department1',
@@ -30,7 +31,7 @@ class ArticlesAdmin(admin.ModelAdmin):
 
 
 class SubmittedAdmin(admin.ModelAdmin):
-    list_display = ['title', 'author', 'university', 'email', 'abstract', 'keywords', 'pdf_file']
+    list_display = ['title', 'author', 'university', 'email', 'abstract', 'keywords', 'doc_file']
 
 
 class ContactFormAdmin(admin.ModelAdmin):
