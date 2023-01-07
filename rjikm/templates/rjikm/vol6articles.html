@@ -36,11 +36,25 @@
         <li style="text-align:center;"> {{article.email2}} </li>
         {% endif %}
         </ul>
+        <ul style="list-style-type: none;">
+        {% if article.author3 != 'Anonymous' %}
+        <li style="text-align:center;"> {{article.author3}} </li>
+        {% endif %}
+        {% if article.department3 != 'Unknown' %}
+        <li style="text-align:center;"> {{article.department3}} </li>
+        {% endif %}
+        {% if article.university3 != 'Unknown' %}
+        <li style="text-align:center;"> {{article.university3}} </li>
+        {% endif %}
+        {% if article.email3 != 'anonymous@example.com' %}
+        <li style="text-align:center;"> {{article.email3}} </li>
+        {% endif %}
+        </ul>
          <p><strong>{{article.abstract_title}}</strong></p>
         <p style="text-align:justify;"> {{article.abstract}}</p>
         <p><strong>{{article.keyword_title}}</strong></p>
         <p> {{article.keywords}}</p>
-        <p> <a href="">{{article.title}}</a></p>
+        <p> <a href="{% url 'view_pdf' article.id %}" target="_blank">{{article.title}}</a></p>
          {% endif%}
 
     {% endfor %}
