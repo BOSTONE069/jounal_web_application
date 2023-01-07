@@ -40,6 +40,10 @@ class Article(models.Model):
     department2 = models.CharField(max_length=100, default='Unknown')
     university2 = models.CharField(max_length=100, default='Unknown')
     email2 = models.EmailField(default='anonymous@example.com')
+    author3 = models.CharField(max_length=100, default='Anonymous')
+    department3 = models.CharField(max_length=100, default='Unknown')
+    university3 = models.CharField(max_length=100, default='Unknown')
+    email3 = models.EmailField(default='anonymous@example.com')
     abstract_title = models.CharField(max_length=100, default='Abstract')
     abstract = models.TextField(default='No abstract provided')
     keyword_title = models.CharField(max_length=100, default="Keyword")
@@ -47,7 +51,13 @@ class Article(models.Model):
     pdf_doc = models.FileField(upload_to='rjikm/uploads/', default='Untitled')
 
     def __str__(self):
-        return f"{self.volume} {self.title} {self.author1} {self.author2} {self.university1} {self.university2} {self.email1} {self.email2} {self.abstract_title} {self.abstract} {self.keyword_title} {self.keywords} {self.pdf_doc}"
+        return f"{self.volume} {self.title} {self.author1} {self.author2} {self.author3} {self.university1} {self.university2} {self.university3} {self.email1} {self.email2} {self.abstract_title} {self.abstract} {self.keyword_title} {self.keywords} {self.pdf_doc}"
+
+    def delete(self, *args, **kwargs):
+        # Delete the file associated with the object
+        self.pdf_doc.delete()
+        # Call the superclass's delete method
+        super().delete(*args, **kwargs)
 
 
 # It creates a model for the database.
@@ -58,7 +68,13 @@ class Submit_article(models.Model):
     email = models.EmailField()
     abstract = models.TextField()
     keywords = models.CharField(max_length=100)
-    pdf_file = models.FileField(upload_to='rjikm/uploads/')
+    doc_file = models.FileField(upload_to='rjikm/uploads/')
+
+    def delete(self, *args, **kwargs):
+        # Delete the file associated with the object
+        self.doc_file.delete()
+        # Call the superclass's delete method
+        super().delete(*args, **kwargs)
 
 
 # It creates a model for the contact form.
@@ -66,4 +82,3 @@ class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
     message = models.TextField()
-
