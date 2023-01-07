@@ -126,6 +126,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Setting the path to the directory where uploaded files will be stored.
 MEDIA_ROOT = str(BASE_DIR) + "/uploads/"
 
+# This is the URL that will be used to access the uploaded files.
 MEDIA_URL = '/uploads/'
+
+# Setting the session cookie to expire after 30 minutes.
+SESSION_COOKIE_AGE = 1800
