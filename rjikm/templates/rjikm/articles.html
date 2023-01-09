@@ -11,15 +11,20 @@
         <li style="padding: 5px;" >
         <a href="{% url 'vol7articles' %}" style="text-align: left; color: wheat;" target="_blank"> {{article.title}}</a>
         </li>
-        {% elif article.volume == 'Vol. 6 No. 2 (2021)'%}
+        {% elif article.volume == 'Vol. 6 No.1 (2021)'%}
         <h2 style="text-align:center;"> {{article.volume }} </h2>
         <li style="padding: 5px;" >
-        <a href="{% url 'vol6_no2_articles' %}" style="text-align: left; color: wheat;" target="_blank">{{article.title}}</a>
+        <a href="{% url 'vol6no1_articles' %}" style="text-align: left; color: wheat;" target="_blank">{{article.title}}</a>
+        </li>
+        {% elif article.volume == 'Vol. 6 No.2 (2021)' %}
+        <h2 style="text-align:center;"> {{article.volume }} </h2>
+        <li style="padding: 5px;" >
+        <a href="{% url 'vol6no2_articles' %}" style="text-align: left; color: wheat;" target="_blank">{{article.title}}</a>
         </li>
         {% else %}
         <h2 style="text-align:center;"> {{article.volume }} </h2>
         <li style="padding: 5px;" >
-        <a href="{% url 'vol6_no1_articles' %}" style="text-align: left; color: wheat;" target="_blank">{{article.title}}</a>
+        <a href="{% url 'vol5no2_articles' %}" style="text-align: left; color: wheat;" target="_blank">{{article.title}}</a>
         </li>
         {% endif %}
         {% endfor %}
