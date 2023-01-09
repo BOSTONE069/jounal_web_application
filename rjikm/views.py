@@ -214,6 +214,11 @@ def view_pdf(request, id):
 
 
 def vol6no1_articles(request):
+    """
+    Def vol6no1_articles(request):
+    :param request: The request is an HttpRequest object
+    :return: The articles are being returned.
+    """
     articles = Article.objects.all()
     vol6_no1_articles = []
     for article in articles:
@@ -224,6 +229,11 @@ def vol6no1_articles(request):
 
 
 def vol6no2_articles(request):
+    """
+    Def vol6no2_articles(request):
+    :param request: The request is an HttpRequest object
+    :return: The articles are being returned.
+    """
     articles = Article.objects.all()
     vol6_no2_articles = []
     for article in articles:
@@ -234,6 +244,11 @@ def vol6no2_articles(request):
 
 
 def vol5no2_articles(request):
+    """
+    It's a function that takes a request and returns a response
+    :param request: The request is an HttpRequest object
+    :return: The articles are being returned.
+    """
     articles = Article.objects.all()
     vol5_no2_articles = []
     for article in articles:
