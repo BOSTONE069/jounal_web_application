@@ -1,0 +1,64 @@
+{% extends "rjikm/layoutvol7articles.html" %}
+
+{% block body %}
+<section style="background-color: maroon;">
+ <div style="margin:20px 100px 20px 100px; color:white; font-family: Times New Roman, Times, serif; font-size: 20px">
+     {% for article in articles %}
+       <!-- Creating a heading 2 with the volume of the article. -->
+         {% if article.volume == 'Vol. 5 No.2 (2020)'%}
+        <h2 style="text-align:center;"> {{article.volume}} </h2>
+         <h3 style="text-align:center; color: wheat;"> {{article.title}}</h3>
+         <ul style="list-style-type: none;">
+        {% if article.author1 != 'Anonymous' %}
+        <li style="text-align:center;"> {{article.author1}} </li>
+        {% endif %}
+        {% if article.department1 != 'Unknown' %}
+        <li style="text-align:center;"> {{article.department1}} </li>
+        {% endif %}
+        {% if article.university1 != 'Unknown' %}
+        <li style="text-align:center;"> {{article.university1}} </li>
+        {% endif %}
+        {% if article.email1 != 'anonymous@example.com' %}
+        <li style="text-align:center;"> {{article.email1}} </li>
+        {% endif %}
+        </ul>
+        <ul style="list-style-type: none;">
+        {% if article.author2 != 'Anonymous' %}
+        <li style="text-align:center;"> {{article.author2}} </li>
+        {% endif %}
+        {% if article.department2 != 'Unknown' %}
+        <li style="text-align:center;"> {{article.department2}} </li>
+        {% endif %}
+        {% if article.university2 != 'Unknown' %}
+        <li style="text-align:center;"> {{article.university2}} </li>
+        {% endif %}
+        {% if article.email2 != 'anonymous@example.com' %}
+        <li style="text-align:center;"> {{article.email2}} </li>
+        {% endif %}
+        </ul>
+        <ul style="list-style-type: none;">
+        {% if article.author3 != 'Anonymous' %}
+        <li style="text-align:center;"> {{article.author3}} </li>
+        {% endif %}
+        {% if article.department3 != 'Unknown' %}
+        <li style="text-align:center;"> {{article.department3}} </li>
+        {% endif %}
+        {% if article.university3 != 'Unknown' %}
+        <li style="text-align:center;"> {{article.university3}} </li>
+        {% endif %}
+        {% if article.email3 != 'anonymous@example.com' %}
+        <li style="text-align:center;"> {{article.email3}} </li>
+        {% endif %}
+        </ul>
+         <p><strong>{{article.abstract_title}}</strong></p>
+        <p style="text-align:justify;"> {{article.abstract}}</p>
+        <p><strong>{{article.keyword_title}}</strong></p>
+        <p> {{article.keywords}}</p>
+        <p> <a href="{% url 'view_pdf' article.id %}" target="_blank">{{article.title}}</a></p>
+         {% endif%}
+
+    {% endfor %}
+ </div>
+</section>
+
+{% endblock %}
