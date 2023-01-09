@@ -129,23 +129,6 @@ def authorInstructions(request):
     """
     return render(request, "rjikm/authorinstructions.html")
 
-
-def vol7articles(request):
-    """
-    It's a function that takes a request and returns a render of the vol7articles.html template with the articles variable
-    set to the articles variable
-
-    :param request: The request is an HttpRequest object. It contains metadata about the request
-    :return: The articles are being returned.
-    """
-    articles = Article.objects.all()
-    vol7_articles = []
-    for article in articles:
-        if vol7_articles == 'Vol. 7 No.1 (2022)':
-            vol7_articles.append(article)
-    return render(request, "rjikm/vol7articles.html", {'articles': articles})
-
-
 def login_view(request):
     """
     If the request method is POST, then validate the form and log the user in
@@ -213,46 +196,6 @@ def view_pdf(request, id):
         return response
 
 
-def vol6no1_articles(request):
-    """
-    Def vol6no1_articles(request):
-    :param request: The request is an HttpRequest object
-    :return: The articles are being returned.
-    """
-    articles = Article.objects.all()
-    vol6_no1_articles = []
-    for article in articles:
-        if vol6_no1_articles == "Vol. 6 No.1 (2021)":
-            vol6_no1_articles.append(article)
-    context = {'articles': articles}
-    return render(request, "rjikm/vol6onearticles.html", context)
-
-
-def vol6no2_articles(request):
-    """
-    Def vol6no2_articles(request):
-    :param request: The request is an HttpRequest object
-    :return: The articles are being returned.
-    """
-    articles = Article.objects.all()
-    vol6_no2_articles = []
-    for article in articles:
-        if vol6_no2_articles == "Vol. 6 No.2 (2021)":
-            vol6_no2_articles.append(article)
-    context = {'articles': articles}
-    return render(request, "rjikm/vol6articles.html", context)
-
-
-def vol5no2_articles(request):
-    """
-    It's a function that takes a request and returns a response
-    :param request: The request is an HttpRequest object
-    :return: The articles are being returned.
-    """
-    articles = Article.objects.all()
-    vol5_no2_articles = []
-    for article in articles:
-        if vol5_no2_articles == "Vol. 5 No. 2 (2020)":
-            vol6_no2_articles.append(article)
-    context = {'articles': articles}
-    return render(request, "rjikm/vol5twoarticles.html", context)
+def article_view(request, id):
+    article = Article.objects.get(id=id)
+    return render(request, 'rjikm/volarticles.html', {'article': article})
