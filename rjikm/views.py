@@ -146,16 +146,6 @@ def vol7articles(request):
     return render(request, "rjikm/vol7articles.html", {'articles': articles})
 
 
-def vol6_no2_articles(request):
-    articles = Article.objects.all()
-    vol6_no2_articles = []
-    for article in articles:
-        if vol6_no2_articles == "Vol. 6 No. 2 (2021)":
-            vol6_no2_articles.append(article)
-    context = {'articles': articles}
-    return render(request, "rjikm/vol6articles.html", context)
-
-
 def login_view(request):
     """
     If the request method is POST, then validate the form and log the user in
@@ -223,11 +213,31 @@ def view_pdf(request, id):
         return response
 
 
-def vol6_no1_articles(request):
+def vol6no1_articles(request):
     articles = Article.objects.all()
     vol6_no1_articles = []
     for article in articles:
-        if vol6_no1_articles == "Vol. 6 No. 1 (2021)":
+        if vol6_no1_articles == "Vol. 6 No.1 (2021)":
             vol6_no1_articles.append(article)
     context = {'articles': articles}
     return render(request, "rjikm/vol6onearticles.html", context)
+
+
+def vol6no2_articles(request):
+    articles = Article.objects.all()
+    vol6_no2_articles = []
+    for article in articles:
+        if vol6_no2_articles == "Vol. 6 No.2 (2021)":
+            vol6_no2_articles.append(article)
+    context = {'articles': articles}
+    return render(request, "rjikm/vol6articles.html", context)
+
+
+def vol5no2_articles(request):
+    articles = Article.objects.all()
+    vol5_no2_articles = []
+    for article in articles:
+        if vol5_no2_articles == "Vol. 5 No. 2 (2020)":
+            vol6_no2_articles.append(article)
+    context = {'articles': articles}
+    return render(request, "rjikm/vol5twoarticles.html", context)
