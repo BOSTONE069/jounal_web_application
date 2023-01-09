@@ -221,3 +221,13 @@ def view_pdf(request, id):
         response = HttpResponse(f.read(), content_type='application/pdf')
         response['Content-Disposition'] = 'inline;filename=article.pdf'
         return response
+
+
+def vol6_no1_articles(request):
+    articles = Article.objects.all()
+    vol6_no1_articles = []
+    for article in articles:
+        if vol6_no1_articles == "Vol. 6 No. 1 (2021)":
+            vol6_no1_articles.append(article)
+    context = {'articles': articles}
+    return render(request, "rjikm/vol6onearticles.html", context)
