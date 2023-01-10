@@ -1,4 +1,4 @@
-# jounal_web_application
+# Regional Journal of Information and Knowledge Management
 ALX PROJECT
 
 This project is being done using Django framework
