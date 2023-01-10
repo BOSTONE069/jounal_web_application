@@ -10,6 +10,12 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 # Create your views here.
 def index(request):
+    """
+    It takes a request, and returns a response
+
+    :param request: The request object is an HttpRequest object. It contains metadata about the request
+    :return: The index.html file
+    """
     return render(request, "rjikm/index.html")
 
 
@@ -185,7 +191,14 @@ def register_view(request):
 
 
 def view_pdf(request, id):
-    # Get the article object
+    """
+    We open the PDF file, create an HttpResponse object with the PDF file as the content, set the
+    Content-Disposition header to inline, and return the response
+
+    :param request: The request object is used to get the current user
+    :param id: The id of the article to be viewed
+    :return: The PDF file is being returned as a response.
+    """
     article = Article.objects.get(id=id)
 
     # Open the PDF file
@@ -197,5 +210,15 @@ def view_pdf(request, id):
 
 
 def article_view(request, id):
+    """
+    The article_view function takes a request and an id, gets the article with the given id, and renders
+    the article in the template.
+
+    :param request: The request object is the first parameter to the view function. It contains
+    information about the current request, such as the method (GET or POST), the user (if any is logged
+    in), and the GET and POST parameters
+    :param id: the id of the article
+    :return: The article object
+    """
     article = Article.objects.get(id=id)
     return render(request, 'rjikm/volarticles.html', {'article': article})
