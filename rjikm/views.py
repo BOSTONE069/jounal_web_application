@@ -49,7 +49,7 @@ def articles(request):
     as the client’s IP address, the HTTP method, and the headers
     :return: The articles.html template is being returned.
     """
-    articles = Article.objects.all()
+    articles = Article.objects.all().order_by('-volume')
     return render(request, "rjikm/articles.html", {'articles': articles})
 
 
