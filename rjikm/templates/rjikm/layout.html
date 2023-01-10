@@ -11,8 +11,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{% static 'rjikm/logo.png' %}" rel="icon">
+  <link href="{% static 'rjikm/logo.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -51,6 +51,7 @@
 
           <li class="dropdown"><a href="{% url 'about' %}"><span>About</span></a>
           <li><a href="{% url 'editorial' %}">Editorial Board</a></li>
+          <!-- A view that is rendering the `articles.html` template -->
           <li><a href="{% url 'articles' %}">Articles</a></li>
           <li><a href="{% url 'authorInstructions' %}"> Instructions to Authors</a></li>
           <li><a href="{% url 'login' %}">Submit Manuscript</a></li>
