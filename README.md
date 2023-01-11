@@ -23,7 +23,10 @@ crispy form using
 2. `myenv\Scripts\activate.bat` or `source myenv/bin/activate`
 3. `pip install django`
 4. `pip install django-crispy-forms`
-5. On local machine you can run the project using `python manage.py runserver`
+5. git clone https://github.com/BOSTONE069/jounal_web_application
+6. `python manage.py makemigrations `
+7. `python manage.py migrate`
+8. On local machine you can run the project using `python manage.py runserver`
 
 # Usage
 Go to the login page http://127.0.0.1:8000/accounts/login/
@@ -46,10 +49,10 @@ This project is licensed under the [MIT License](#https://www.mit.edu/~amini/LIC
 
 
 <p style="align:center">
-    <img src="RJIKM 1.png">
+    <img src="Screenshot_20230111_084215.png">
 </p>
 
 <p style="align:center">
-    <img src="rjikm 3.png">
+    <img src="Screenshot_20230111_084426.png">
 </p>
 
