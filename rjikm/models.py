@@ -77,7 +77,6 @@ class Submit_article(models.Model):
         super().delete(*args, **kwargs)
 
 
-
 # It creates a model for the database.
 class Contact(models.Model):
     name = models.CharField(max_length=255)
