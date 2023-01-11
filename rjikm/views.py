@@ -101,16 +101,14 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            # Send an email to the admins
             send_mail(
-                'New Contact Form Submission',  # Subject
-                form.cleaned_data['message'],  # Message
-                form.cleaned_data['email'],  # From email
-                ['bostoneochieng@gmail.com'],  # List of recipient emails
+                'New Contact Form Submission',
+                form.cleaned_data['message'],
+                form.cleaned_data['email'],
+                ['bostoneochieng@gmail.com'],
                 fail_silently=True,
             )
             messages.success(request, 'Message Sent Successfully')
-            # send email and redirect to success page
             return redirect('contact')
     else:
         form = ContactForm()
@@ -200,10 +198,7 @@ def view_pdf(request, id):
     :return: The PDF file is being returned as a response.
     """
     article = Article.objects.get(id=id)
-
-    # Open the PDF file
     with open(article.pdf_doc.path, 'rb') as f:
-        # Create an HttpResponse object with the PDF file as the content
         response = HttpResponse(f.read(), content_type='application/pdf')
         response['Content-Disposition'] = 'inline;filename=article.pdf'
         return response
