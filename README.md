@@ -4,7 +4,7 @@
 
 # Regional Journal of Information and Knowledge Management
 A web application developed using the Django framework that allows users to submit their articles to the administrator for review and posting. The application allows users to sign up or log in, and then use the submission form to send their articles. The administrator is able to review, approve, and post the articles. The application uses the crispy-forms library to enhance the user interface.
-
+Click [here](#https://www.linkedin.com/posts/bostone-ochieng-b258a8108_rjikm-journal-web-application-project-activity-7018873866508775424-I-FO?utm_source=share&utm_medium=member_desktop) for link to the article about the project.
 
 # Table of Contents
 - [Installation](#Installation)
