@@ -85,7 +85,6 @@ def test_create_article_with_defaults(self):
     self.assertEqual(article.abstract, "No abstract provided")
     self.assertEqual(article.keyword_title, "Keyword")
     self.assertEqual(article.keywords, "None")
-    self.assertEqual(article.titlelink, "Untitled")
 
 
 def test_create_article_with_non_defaults(self):
@@ -106,8 +105,7 @@ def test_create_article_with_non_defaults(self):
         abstract_title="Abstract Title",
         abstract="This is the abstract of my article.",
         keyword_title="Keyword Title",
-        keywords="keyword1, keyword2",
-        titlelink="My Article Link"
+        keywords="keyword1, keyword2"
     )
     self.assertEqual(article.volume, "Volume 1")
     self.assertEqual(article.title, "My Article")
@@ -123,7 +121,7 @@ def test_create_article_with_non_defaults(self):
     self.assertEqual(article.abstract, "This is the abstract of my article.")
     self.assertEqual(article.keyword_title, "Keyword Title")
     self.assertEqual(article.keywords, "keyword1, keyword2")
-    self.assertEqual(article.titlelink, "My Article Link")
+
 
 
 def test_create_contact_with_valid_values(self):
