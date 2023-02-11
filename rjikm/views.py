@@ -15,7 +15,7 @@ def index(request):
 
     :param request: The request object is an HttpRequest object. It contains metadata about the request
     :return: The index.html file
-    """
+    """ 
     return render(request, "rjikm/index.html")
 
 

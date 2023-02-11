@@ -30,10 +30,12 @@ class ArticlesAdmin(admin.ModelAdmin):
                      'university1', 'author2', 'department1', 'university2')
 
 
+# A class that inherits from the ModelAdmin class. It is used to customize the admin interface.
 class SubmittedAdmin(admin.ModelAdmin):
     list_display = ['title', 'author', 'university', 'email', 'abstract', 'keywords', 'doc_file']
 
 
+# It creates a list of the fields that will be displayed in the admin panel.
 class ContactFormAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'message']
 
