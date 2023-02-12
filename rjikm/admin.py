@@ -19,6 +19,7 @@ class EditorinchiefAdmin(admin.ModelAdmin):
     search_fields = ('FullName__startswith',)
 
 
+# A class that inherits from the ModelAdmin class.
 class ArticlesAdmin(admin.ModelAdmin):
     list_display = (
         'volume', 'title', 'author1', 'department1', 'university1', 'email1', 'author2', 'department2', 'university2',
