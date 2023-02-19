@@ -15,6 +15,7 @@
       </ol>
   </div>
 </section>
+<!-- The form that is being rendered. -->
 <section class="submitform" >
    <h1 style="text-align:center;">Submit Manuscript Here</h1>
 <form method="post" enctype="multipart/form-data" action="{% url 'submit' %}">
@@ -29,6 +30,7 @@
 </form>
 
 </section>
+  <!-- Displaying the message that is being passed from the views.py file. -->
   {% if messages %}
     <ul class="messages" style="color:green; list-style-type: none; text-align:center; font-family: "Times New Roman", Times, serif;">
         {% for message in messages %}
