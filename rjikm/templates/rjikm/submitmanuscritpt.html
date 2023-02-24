@@ -18,6 +18,7 @@
 <!-- The form that is being rendered. -->
 <section class="submitform" >
    <h1 style="text-align:center;">Submit Manuscript Here</h1>
+<!-- This is the form that is being rendered. -->
 <form method="post" enctype="multipart/form-data" action="{% url 'submit' %}">
     {% csrf_token %}
    {% for field in form %}

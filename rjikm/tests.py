@@ -140,6 +140,10 @@ def test_create_contact_with_valid_values(self):
 
 def test_create_contact_with_invalid_email(self):
   """
+  This function will test the Contact model's create function by creating a Contact object with an
+  invalid email address and then checking to see if a ValidationError is raised.
+  """
+  """
   using the Django TestCase class to create a test function that will test the Contact model's
   create function
   """
