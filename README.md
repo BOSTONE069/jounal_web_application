@@ -1,4 +1,4 @@
-<p style="align:center">
+<p "align=center">
     <img src="rjikm/static/rjikm/logo.png">
 </p>
 
