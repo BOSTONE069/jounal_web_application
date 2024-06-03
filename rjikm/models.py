@@ -39,10 +39,10 @@ class Author(models.Model):
 
 # It creates a model for the database.
 class Article(models.Model):
+    title = models.CharField(max_length=400, default='Untitled')
     volume = models.IntegerField(default=1)
     number = models.IntegerField(default=1)
     year = models.IntegerField(default=2022)
-    title = models.CharField(max_length=400, default='Untitled')
     authors = models.ManyToManyField(Author, related_name='articles')
     abstract_title = models.CharField(max_length=100, default='Abstract')
     abstract = models.TextField(default='No abstract provided')

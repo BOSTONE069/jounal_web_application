@@ -40,17 +40,17 @@ def contact(request):
     return render(request, "rjikm/contact.html")
 
 
-def articles(request):
-    """
-    It takes a request, gets all the articles from the database, and then renders the articles.html
-    template, passing in the articles
+# def articles(request):
+#     """
+#     It takes a request, gets all the articles from the database, and then renders the articles.html
+#     template, passing in the articles
 
-    :param request: The request is an HttpRequest object. It contains metadata about the request, such
-    as the client’s IP address, the HTTP method, and the headers
-    :return: The articles.html template is being returned.
-    """
-    articles = Article.objects.all().order_by('-volume')
-    return render(request, "rjikm/articles.html", {'articles': articles})
+#     :param request: The request is an HttpRequest object. It contains metadata about the request, such
+#     as the client’s IP address, the HTTP method, and the headers
+#     :return: The articles.html template is being returned.
+#     """
+#     articles = Article.objects.all().order_by('-volume')
+#     return render(request, "rjikm/articles.html", {'articles': articles})
 
 
 def editorial(request):
@@ -204,16 +204,30 @@ def view_pdf(request, id):
         return response
 
 
-def article_view(request, id):
-    """
-    The article_view function takes a request and an id, gets the article with the given id, and renders
-    the article in the template.
+# def article_view(request, id):
+#     """
+#     The article_view function takes a request and an id, gets the article with the given id, and renders
+#     the article in the template.
 
-    :param request: The request object is the first parameter to the view function. It contains
-    information about the current request, such as the method (GET or POST), the user (if any is logged
-    in), and the GET and POST parameters
-    :param id: the id of the article
-    :return: The article object
-    """
-    article = Article.objects.get(id=id)
-    return render(request, 'rjikm/volarticles.html', {'article': article})
+#     :param request: The request object is the first parameter to the view function. It contains
+#     information about the current request, such as the method (GET or POST), the user (if any is logged
+#     in), and the GET and POST parameters
+#     :param id: the id of the article
+#     :return: The article object
+#     """
+#     article = Article.objects.get(id=id)
+#     return render(request, 'rjikm/volarticles.html', {'article': article})
+
+def current_articles(request):
+    articles = Article.objects.filter(is_archived=False).order_by('-year', '-volume', '-number')
+    return render(request, 'rjikm/current_articles.html', {'articles': articles})
+
+def archived_articles(request):
+    articles = Article.objects.filter(is_archived=True).order_by('-year', '-volume', '-number')
+    return render(request, 'rjikm/archived_articles.html', {'articles': articles})
+
+def archive_article(request, article_id):
+    article = get_object_or_404(Article, pk=article_id)
+    article.is_archived = True
+    article.save()
+    return redirect('current_articles')

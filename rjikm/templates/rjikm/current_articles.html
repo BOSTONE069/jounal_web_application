@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Current Articles</title>
+</head>
+<body>
+    <h1>Current Articles</h1>
+    <ul>
+        {% for article in articles %}
+            <li>{{ article }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'archived_articles' %}">View Archived Articles</a>
+</body>
+</html>
