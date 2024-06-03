@@ -46,11 +46,13 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="{% url 'index' %}" >Home</a></li>
+          <li><a href="{% url 'index' %}" class="active">Home</a></li>
 
-          <li class="dropdown"><a href="{% url 'about' %}" <span>About</span> </a>
+          <li class="dropdown"><a href="{% url 'about' %}"><span>About</span></a>
           <li><a href="{% url 'editorial' %}" class="active">Editorial Board</a></li>
-          <li><a href="{% url 'articles' %}">Articles</a></li>
+          <!-- A view that is rendering the `articles.html` template -->
+          <li><a href="{% url 'current_articles' %}">Current Issues</a></li>
+          <li><a href="{% url 'archived_articles' %}">Past Issues</a></li>
           <li><a href="{% url 'authorInstructions' %}"> Instructions to Authors</a></li>
           <li><a href="{% url 'login' %}">Submit Manuscript</a></li>
           <li><a href="{% url 'contact' %}">Contact</a></li>

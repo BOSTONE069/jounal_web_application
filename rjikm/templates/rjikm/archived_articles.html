@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Archived Articles</title>
-</head>
-<body>
+{% extends "rjikm/layoutabout.html" %}
+
+{% block body %}
     <h1>These are the past issues for the Regional Institute of Information and Knowledge Management</h1>
-    <ul>
-        {% for article in articles %}
-            <li>{{ article }}</li>
-        {% endfor %}
-    </ul>
+    <section style="background-color: maroon; margin:0px 0px 0px 0px; padding: 100px 0px 80px;">
+        <div style=" text-align:center; color: white; font-family: Times New Roman, Times, serif; font-size: 24px;">
+            <ul style="display: inline-block; text-align: center; list-style: none;">
+                {% for article in articles %}
+                <h2 style="text-align:center;">Vol. {{article.volume }} No. {{article.number}} {{article.year}}</h2>
+                 <ol>
+                    <li style="padding: 5px;">
+                        <a href="{% url 'article_view' article.id %}" style="text-align: left; color: wheat;" target="_blank">
+                        {{ article.title }}</a></li>
+                 </ol>
+                    
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
     <a href="{% url 'current_articles' %}">View Current Articles</a>
-</body>
-</html>
+{% endblock %}

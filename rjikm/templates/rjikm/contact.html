@@ -16,7 +16,7 @@
 <div>
  <!-- A form that is used to send messages to the company. -->
   <form method="post" action="{% url 'contact' %}" style="margin: 0px 250px 0px 0px;">
-    {% csrf_token %}
+  {% csrf_token %}
    {% for field in form %}
         <div class="row mb-3">
             {{ field.label_tag }}

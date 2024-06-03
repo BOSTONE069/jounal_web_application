@@ -8,7 +8,7 @@
   <!-- A for loop that is iterating through the articles and displaying the volume and title of each
   article. -->
     <ol style="display: inline-block; text-align: center; list-style: none;">
-        {% for article in articles %}
+        {% for article in article %}
         <h2 style="text-align:center;"> {{article.volume }} </h2>
         <li style="padding: 5px;" >
         <a href="{% url 'article_view' article.id %}" style="text-align: left; color: wheat;" target="_blank"> {{article.title}}</a>
