@@ -54,6 +54,9 @@ class Article(models.Model):
     def __str__(self):
         return f"Vol. {self.volume} No.{self.number} ({self.year}) - {self.title}"
 
+    def display_authors(self):
+        return ', '.join(author.name for author in self.authors.all())
+    display_authors.short_description = 'Authors'
     def delete(self, *args, **kwargs):
         # Delete the file associated with the object
         self.pdf_doc.delete()

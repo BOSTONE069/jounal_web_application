@@ -23,12 +23,12 @@ class AuthorAdmin(admin.ModelAdmin):
     search_fields = ('name', 'university', 'department')
     
 # A class that inherits from the ModelAdmin class.
-# class ArticleAdmin(admin.ModelAdmin):
-#     list_display = ('title', 'volume', 'number', 'year', 'display_authors', 
-#                     'abstract_title', 'abstract', 'keyword_title', 'keywords', 'pdf_doc', 'is_archived')
-#     list_filter = ('is_archived', 'year', 'volume', 'number')
-#     search_fields = ('title', 'display_authors', 'abstract', 'keywords')
-#     filter_horizontal = ('authors',)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('title', 'volume', 'number', 'year', 'display_authors', 
+                    'abstract_title', 'abstract', 'keyword_title', 'keywords', 'pdf_doc', 'is_archived')
+    list_filter = ('is_archived', 'year', 'volume', 'number')
+    search_fields = ('title', 'abstract', 'keywords', 'authors__name')
+    filter_horizontal = ('authors',)
 
 
 # A class that inherits from the ModelAdmin class. It is used to customize the admin interface.
@@ -44,7 +44,7 @@ class ContactFormAdmin(admin.ModelAdmin):
 # Registering the Editorial board model with the Editorial boardAdmin class.
 admin.site.register(Editorialboard, EditorialboardAdmin)
 admin.site.register(Editorinchief, EditorinchiefAdmin)
-admin.site.register(Article)
+admin.site.register(Article, ArticleAdmin)
 admin.site.register(Submit_article, SubmittedAdmin)
 admin.site.register(Contact, ContactFormAdmin)
 admin.site.register(Author, AuthorAdmin)
