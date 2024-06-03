@@ -39,35 +39,26 @@ class Author(models.Model):
 
 # It creates a model for the database.
 class Article(models.Model):
-    volume = models.CharField(max_length=100, default="untitled")
+    volume = models.IntegerField(default=1)
+    number = models.IntegerField(default=1)
+    year = models.IntegerField(default=2022)
     title = models.CharField(max_length=400, default='Untitled')
-    author1 = models.CharField(max_length=100, default='Anonymous')
-    university1 = models.CharField(max_length=100, default='Unknown')
-    department1 = models.CharField(max_length=100, default='Unknown')
-    email1 = models.EmailField(default='anonymous@example.com')
-    author2 = models.CharField(max_length=100, default='Anonymous')
-    department2 = models.CharField(max_length=100, default='Unknown')
-    university2 = models.CharField(max_length=100, default='Unknown')
-    email2 = models.EmailField(default='anonymous@example.com')
-    author3 = models.CharField(max_length=100, default='Anonymous')
-    department3 = models.CharField(max_length=100, default='Unknown')
-    university3 = models.CharField(max_length=100, default='Unknown')
-    email3 = models.EmailField(default='anonymous@example.com')
+    authors = models.ManyToManyField(Author, related_name='articles')
     abstract_title = models.CharField(max_length=100, default='Abstract')
     abstract = models.TextField(default='No abstract provided')
     keyword_title = models.CharField(max_length=100, default="Keyword")
     keywords = models.CharField(max_length=200, default='None')
     pdf_doc = models.FileField(upload_to='rjikm/uploads/', default='Untitled')
+    is_archived = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.volume} {self.title} {self.author1} {self.author2} {self.author3} {self.university1} {self.university2} {self.university3} {self.email1} {self.email2} {self.abstract_title} {self.abstract} {self.keyword_title} {self.keywords} {self.pdf_doc}"
+        return f"Vol. {self.volume} No.{self.number} ({self.year}) - {self.title}"
 
     def delete(self, *args, **kwargs):
         # Delete the file associated with the object
         self.pdf_doc.delete()
         # Call the superclass's delete method
         super().delete(*args, **kwargs)
-
 
 # It creates a model for the database.
 class Submit_article(models.Model):
