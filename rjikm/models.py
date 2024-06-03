@@ -26,6 +26,15 @@ class Editorinchief(models.Model):
 
     def __str__(self):
         return f" {self.FullName} {self.University} {self.MyEmail}"
+    
+class Author(models.Model):
+    name = models.CharField(max_length=100, default="Author Name")
+    university = models.CharField(max_length=100, default="Name of the University")
+    department = models.CharField(max_length=100, default="Name of the Department")
+    email = models.EmailField(default="Enter your email address")
+    
+    def __st__(self):
+        return f"{self.name}, {self.university}, {self.department}, {self.email}"
 
 
 # It creates a model for the database.
