@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Editorialboard, Editorinchief, Article, Submit_article, Contact
+from .models import *
 
 
 # Register your models here.
@@ -18,17 +18,17 @@ class EditorinchiefAdmin(admin.ModelAdmin):
     list_display = ['FullName', 'Department', 'University', 'MyEmail']
     search_fields = ('FullName__startswith',)
 
-
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ('name', 'university', 'department', 'email')
+    search_fields = ('name', 'university', 'department')
+    
 # A class that inherits from the ModelAdmin class.
-class ArticlesAdmin(admin.ModelAdmin):
-    list_display = (
-        'volume', 'title', 'author1', 'department1', 'university1', 'email1', 'author2', 'department2', 'university2',
-        'email2', 'author3', 'department3', 'university3',
-        'email3', 'abstract_title', 'abstract', 'keyword_title',
-        'keywords', 'pdf_doc')
-    list_filter = ["title"]
-    search_fields = ('volume', 'title', 'author1', 'department1',
-                     'university1', 'author2', 'department1', 'university2')
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('title', 'volume', 'number', 'year', 'display_authors', 
+                    'abstract_title', 'abstract', 'keyword_title', 'keywords', 'pdf_doc', 'is_archived')
+    list_filter = ('is_archived', 'year', 'volume', 'number')
+    search_fields = ('title', 'abstract', 'keywords', 'authors__name')
+    filter_horizontal = ('authors',)
 
 
 # A class that inherits from the ModelAdmin class. It is used to customize the admin interface.
@@ -44,6 +44,7 @@ class ContactFormAdmin(admin.ModelAdmin):
 # Registering the Editorial board model with the Editorial boardAdmin class.
 admin.site.register(Editorialboard, EditorialboardAdmin)
 admin.site.register(Editorinchief, EditorinchiefAdmin)
-admin.site.register(Article, ArticlesAdmin)
+admin.site.register(Article, ArticleAdmin)
 admin.site.register(Submit_article, SubmittedAdmin)
 admin.site.register(Contact, ContactFormAdmin)
+admin.site.register(Author, AuthorAdmin)

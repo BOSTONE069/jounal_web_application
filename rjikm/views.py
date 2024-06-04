@@ -217,3 +217,17 @@ def article_view(request, id):
     """
     article = Article.objects.get(id=id)
     return render(request, 'rjikm/volarticles.html', {'article': article})
+
+def current_articles(request):
+    articles = Article.objects.filter(is_archived=False).order_by('-year', '-volume', '-number')
+    return render(request, 'rjikm/current_articles.html', {'articles': articles})
+
+def archived_articles(request):
+    articles = Article.objects.filter(is_archived=True).order_by('-year', '-volume', '-number')
+    return render(request, 'rjikm/archived_articles.html', {'articles': articles})
+
+def archive_article(request, article_id):
+    article = get_object_or_404(Article, pk=article_id)
+    article.is_archived = True
+    article.save()
+    return redirect('current_articles')

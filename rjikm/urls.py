@@ -18,6 +18,9 @@ urlpatterns = [
     path('register/', views.register_view, name='register'),
     path('view_pdf/<int:id>', views.view_pdf, name='view_pdf'),
     path('rjikm/uploads/<int:pk>/download/', views.download_article, name='uploads'),
+    path('current/', views.current_articles, name='current_articles'),
+    path('archives/', views.archived_articles, name='archived_articles'),
+    path('archive/<int:article_id>/', views.archive_article, name='archive_article'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # default: "Django Administration"
 admin.site.site_header = 'Regional Journal of Information and Knowledge Management'
