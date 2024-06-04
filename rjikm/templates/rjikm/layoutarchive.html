@@ -51,10 +51,10 @@
           <li class="dropdown"><a href="{% url 'about' %}"><span>About</span></a>
           <li><a href="{% url 'editorial' %}">Editorial Board</a></li>
           <!-- A view that is rendering the `articles.html` template -->
-          <li><a href="{% url 'current_articles' %}">Current Issues</a></li>
-          <li><a href="{% url 'archived_articles' %}">Past Issues</a></li>
+          <li><a href="{% url 'current_articles' %}" >Current Issues</a></li>
+          <li><a href="{% url 'archived_articles' %}" class="active">Past Issues</a></li>
           <li><a href="{% url 'authorInstructions' %}"> Instructions to Authors</a></li>
-          <li><a href="{% url 'login' %}" class="active">Submit Manuscript</a></li>
+          <li><a href="{% url 'login' %}">Submit Manuscript</a></li>
           <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -101,7 +101,7 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'authorInstructions' %}">Terms of service</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'authorInstructions' %}">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact' %}">Privacy policy</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'submit' %}">Submit Manuscript</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Archive</a></li>
@@ -113,7 +113,6 @@
             <h4>Join Our Newsletter</h4>
             <p>Yor can enter you email here to subscribe to our jounals</p>
             <form action="" method="post">
-              {% csrf_token %}
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
           </div>
@@ -126,6 +125,7 @@
 
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
+          {% csrf_token %}
           &copy; <script>document.write(new Date().getFullYear());</script> Copyright <strong><span>RJIKM</span></strong>. All Rights Reserved
         </div>
         <div class="credits">

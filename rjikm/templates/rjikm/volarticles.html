@@ -1,24 +1,32 @@
 {% extends "rjikm/layoutvol7articles.html" %}
 
 {% block body %}
-<section style="background-color: maroon;">
- <div style="margin:20px 100px 20px 100px; color:white; font-family: Times New Roman, Times, serif; font-size: 20px">
+<section style="background-color: #B6E2D3;">
+ <div style="margin:20px 100px 20px 100px; color:black; font-family: Times New Roman, Times, serif; font-size: 20px">
        <!-- Creating a heading 2 with the volume of the article. -->
-        <h2 style="text-align:center;"> Vol. {{article.volume }} No. {{article.number}} {{article.year}} </h2>
+        <h2 style="text-align:center;"> Vol. {{article.volume }} No. {{article.number}} ({{article.year}}) </h2>
 
         <!-- Creating a heading 3 with the title of the article. -->
-        <h3 style="text-align:center; color: wheat;"> {{article.title}}</h3>
-        <h3 style="text-align:center;">
+        <h3 style="text-align:center; color: maroon;"> {{article.title}}</h3>
+        <h6 style="text-align:center;">
             {% for author in article.authors.all %}
-                {{ author.name }}{% if not forloop.last %}, {% endif %}
+            {{ author.name }} 
+            <br />
+            {{ author.university }}
+            <br />
+            {{ author.email }}
+            <br />
+            <br />
+            {% if not forloop.last %} {% endif %}
             {% endfor %}
-        </h3>
+        </h6>
 
-        <p><strong>{{article.abstract_title}}</strong></p>
-        <p style="text-align:justify;"> {{article.abstract}}</p>
-        <p><strong>{{article.keyword_title}}</strong></p>
-        <p> {{article.keywords}}</p>
-        <p> <a href="{% url 'view_pdf' article.id %}" target="_blank">{{article.title}}</a></p>
+        <p><strong>{{ article.abstract_title }}</strong></p>
+        <pre style="white-space: pre-wrap; text-align: justify; font-family: 'Times New Roman', Times, serif; font-size: 14px;">{{ article.abstract }}</pre>
+        
+        <p><strong>{{ article.keyword_title }}</strong></p>
+        <p> {{ article.keywords }}</p>
+        <p> <a href="{% url 'view_pdf' article.id %}" target="_blank" style="color: maroon;">{{article.title}}</a></p>
  </div>
 </section>
 
