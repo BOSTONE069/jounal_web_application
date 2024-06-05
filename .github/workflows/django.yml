@@ -1,35 +1,43 @@
 name: Django CI
 
+# Define the events that will trigger the workflow
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" ]  # Trigger on push to the "main" branch
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main" ]  # Trigger on pull request to the "main" branch
 
+# Define the jobs to be run
 jobs:
   build:
-    runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 3
-      matrix:
-        python-version: [3.8, 3.9]
+    runs-on: ubuntu-latest  # Use the latest version of Ubuntu
 
+    # Define a matrix of Python versions to test against
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+
+    # Steps to be executed in the job
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4  # Check out the code from the repository
+
+    # Set up Python environment for each version in the matrix
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install system dependencies
+
+    # Install dependencies
+    - name: Install Dependencies
       run: |
-        sudo apt-get update
-        sudo apt-get install -y apparmor
-    - name: Install Python dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        python -m pip install --upgrade pip  # Upgrade pip
+        pip install -r requirements.txt  # Install dependencies from requirements.txt
+
+    # Run tests
     - name: Run Tests
       run: |
-        python manage.py test
+        python manage.py test  # Run Django tests
+
 
 
