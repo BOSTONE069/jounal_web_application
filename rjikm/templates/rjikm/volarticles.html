@@ -1,13 +1,13 @@
 {% extends "rjikm/layoutvol7articles.html" %}
 
 {% block body %}
-<section style="background-color: #B6E2D3;">
- <div style="margin:20px 100px 20px 100px; color:black; font-family: Times New Roman, Times, serif; font-size: 20px">
+<section style="background-color: #1a4036; color: white;">
+ <div style="margin:20px 100px 20px 100px; color:white; font-family: Times New Roman, Times, serif; font-size: 20px">
        <!-- Creating a heading 2 with the volume of the article. -->
         <h2 style="text-align:center;"> Vol. {{article.volume }} No. {{article.number}} ({{article.year}}) </h2>
 
         <!-- Creating a heading 3 with the title of the article. -->
-        <h3 style="text-align:center; color: maroon;"> {{article.title}}</h3>
+        <h3 style="text-align:center; color: wheat;"> {{article.title}}</h3>
         <div style="text-align:center;">
             {% for author in article.authors.all %}
             <b>{{ author.name }}</b>
@@ -26,7 +26,7 @@
         
         <p><strong>{{ article.keyword_title }}</strong></p>
         <p> {{ article.keywords }}</p>
-        <p> <a href="{% url 'view_pdf' article.id %}" target="_blank" style="color: maroon;">{{article.title}}</a></p>
+        <p> <a href="{% url 'view_pdf' article.id %}" target="_blank" style="color: wheat;">{{article.title}}</a></p>
  </div>
 </section>
 
