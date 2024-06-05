@@ -136,3 +136,10 @@ MEDIA_URL = '/uploads/'
 
 # Setting the session cookie to expire after 30 minutes.
 SESSION_COOKIE_AGE = 1800
+
+
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
+
+SECURE_SSL_REDIRECT = True
