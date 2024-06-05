@@ -2,15 +2,15 @@
 
 {% block body %}
 
-    <section style="background-color: #B6E2D3; margin:0px 0px 0px 0px; padding: 100px 0px 80px;">
-        <div style=" text-align:center; color: black; font-family: Times New Roman, Times, serif; font-size: 24px;">
+    <section style="background-color: #1a4036; margin:0px 0px 0px 0px; padding: 100px 0px 80px;">
+        <div style=" text-align:center; color: white; font-family: Times New Roman, Times, serif; font-size: 24px;">
             <h4>These are the past issues for the Regional Institute of Information and Knowledge Management</h4>
             <br />
             <ul style="display: inline-block; text-align: center; list-style: none;">
                 {% for article in articles %}
                 <h2 style="text-align:center;">Vol. {{article.volume }} No. {{article.number}} ({{article.year}})</h2>
                     <li style="padding: 5px;">
-                        <a href="{% url 'article_view' article.id %}" style="text-align: left; color: maroon;" target="_blank">
+                        <a href="{% url 'article_view' article.id %}" style="text-align: left; color: wheat;" target="_blank">
                         {{ article.title }}</a></li>  
                 {% endfor %}
             </ul>

@@ -1,16 +1,16 @@
 {% extends "rjikm/layouteditorial.html" %}
 
 {% block body %}
-<section style="background-color: #B6E2D3;">
+<section style="background-color: #1a4036; margin:0px;">
  <div class="aboutus">
-  <h2 style="text-align:center; color: black;"> Editorial Board</h2>
-  <p style="text-align:center; color: black;"> This is a biannual open access scholarly journal. All the articles published in the journal are double blind peer reviewed by eminent information and knowledge management scholars. One print special edition is published annually. This edition publishes the most popular articles of the year.</p>
+  <h2 style="text-align:center; color: white;"> Editorial Board</h2>
+  <p style="text-align:center; color: white;"> This is a biannual open access scholarly journal. All the articles published in the journal are double blind peer reviewed by eminent information and knowledge management scholars. One print special edition is published annually. This edition publishes the most popular articles of the year.</p>
  </div>
 </section>
 
 <!-- This is the code that is displaying the editorial board members. -->
-<div style="background-color: #B6E2D3;">
-  <div style=" text-align:center; color: black; font-family: Times New Roman, Times, serif; font-size: 20px;">
+<div style="background-color: #1a4036;">
+  <div style=" text-align:center; color: white; font-family: Times New Roman, Times, serif; font-size: 20px;">
     <ol style="display: inline-block; text-align: left">
         {% for member in editorialboard %}
         <li style="padding: 5px;" >
@@ -20,21 +20,19 @@
       </ol>
   </div>
 </div>
-
 <!-- This is the code that is displaying the editor-in-chief. -->
-<div style="background-color: #B6E2D3;">
-  <div style=" text-align:center; color: black; font-family: Times New Roman, Times, serif; font-size: 20px;">
-    <h2 style="text-align:center; color: black;"> Editor-in-Chief</h2>
+<div style="background-color: #1a4036; ">
+  <div style=" text-align:center; color: white; font-family: Times New Roman, Times, serif; font-size: 20px;">
+    <h2 style="text-align:center; color: white;"> Editor-in-Chief</h2>
     <div>
         {% for editor in editorinchief %}
         <p> {{editor.FullName}} </p>
         <p> {{editor.Department}}</p>
         <p> {{editor.University}} </p>
-        <p> {{editor.MyEmail}}</p>
+        <p style="margin-bottom:0px;"> {{editor.MyEmail}}</p>
         {% endfor %}
     </div>
   </div>
 </div>
 </div>
-
 {% endblock %}

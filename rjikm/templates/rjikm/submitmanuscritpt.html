@@ -1,7 +1,7 @@
 {% extends "rjikm/layoutoutsubmit.html" %}
 
 {% block body %}
-<section style="margin: 70px 0px 0px 0px; background-color: maroon; color: #fff; font-size:20px; font-family: Times New Roman, Times, serif;">
+<section style="margin: 70px 0px 0px 0px; background-color:#1a4036; color: #fff; font-size:20px; font-family: Times New Roman, Times, serif;">
   <div>
     <h1 style="text-align:center;">Submission Preparation Checklist</h1>
     <p style="text-align:center;">As part of the submission process, authors are required to check off their submission's compliance with all the following items, and submissions may be returned to author that do not adhere to these guidelines.</p>
@@ -16,7 +16,7 @@
   </div>
 </section>
 <!-- The form that is being rendered. -->
-<section class="submitform" >
+<section class="submitform" style="background-color: #1a4036;" >
    <h1 style="text-align:center;">Submit Manuscript Here</h1>
 <!-- This is the form that is being rendered. -->
 <form method="post" enctype="multipart/form-data" action="{% url 'submit' %}">
