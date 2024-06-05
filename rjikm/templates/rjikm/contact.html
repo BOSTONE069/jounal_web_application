@@ -1,38 +1,97 @@
 {% extends "rjikm/layoutcontact.html" %}
 
 {% block body %}
-<section class="contactheader" >
+{% load static %}
+
+<section class="contactheader" style="background-color: #B6E2D3; color: black;">
   <div>
     <h1>Let's Get In Touch!</h1>
-    <p>Ready to start your next project with us? Send us a messages and we will get back to you as soon as possible!</p>
+    <p>Ready to start your next project with us? Send us a message and we will get back to you as soon as possible!</p>
   </div>
   <!-- A map of the location of the company. -->
-    <div >
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8170146071766!2d36.81640611560605!3d-1.2836703359874655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11efc0b203dd%3A0x5376f1de78cf155a!2sNairobi%20C%20B%20D!5e0!3m2!1sen!2ske!4v1672056405044!5m2!1sen!2ske" width="1500" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8170146071766!2d36.81640611560605!3d-1.2836703359874655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11efc0b203dd%3A0x5376f1de78cf155a!2sNairobi%20C%20B%20D!5e0!3m2!1sen!2ske!4v1672056405044!5m2!1sen!2ske" width="800" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </section>
-<!-- A form that is used to send messages to the company. -->
-<section class="submitform" >
-<div>
- <!-- A form that is used to send messages to the company. -->
-  <form method="post" action="{% url 'contact' %}" style="margin: 0px 250px 0px 0px;">
-  {% csrf_token %}
-   {% for field in form %}
+
+<!-- Contact Information and Form Section -->
+<section class="contact-section" style="background-color: #B6E2D3; display: flex; justify-content: space-around; align-items: flex-start; padding: 20px;">
+  <!-- Contact Information -->
+  <div class="contact-info d-flex flex-column img-fluid" style="width: 100%; padding-left:60px;">
+    <h3>Contact Information</h3>
+    <p> <img src="{% static "rjikm/location.jpg" %}" width="30" height="30">  <strong>Location:</strong> Nairobi CBD</p>
+    <p><img src="{% static "rjikm/postbox.png" %}" width="30" height="30"> <strong>Box:</strong> 24358-00100
+      Nairobi
+      Kenya</p>
+    <p><img src="{% static "rjikm/email.png" %}" width="30" height="30"><strong>Email:</strong> tom.kwanya@gmail.com</p>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="d-flex flex-column"> 
+    <h3 style="padding-left:200px;">Submit Your Information</h3>
+    <form method="post" action="{% url 'contact' %}" style="margin: 0px 300px 0px 0px; padding-left:10px;">
+      {% csrf_token %}
+      {% for field in form %}
         <div class="row mb-3">
-            {{ field.label_tag }}
-            {{ field }}
+          {{ field.as_p }}
+          {{ field }}
         </div>
-    {% endfor %}
-    <input type="submit" value="Send" style="width: 300px; border-radius: 8px;  margin: 70px 0px 0px 0px;">
-</form>
-</div>
+      {% endfor %}
+      <div style="padding-left:200px">
+      <input type="submit" value="Send" style="width: 300px; border-radius: 100px; margin: 10px 0px 0px 0px; ">
+      </div>
+    </form>
+  </div>
 </section>
+
+<!-- Modal Window for Success Message -->
+<div id="successModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Message Sent Successfully</p>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    {% if messages %}
+      {% for message in messages %}
+        if (message.tags == 'success') {
+          $('#successModal').fadeIn();
+
+          // Close the modal when the user clicks the close button or anywhere outside the modal
+          $('.close').click(function() {
+            $('#successModal').fadeOut(function() {
+              window.location.href = "{% url 'contact' %}";
+            });
+          });
+          $(window).click(function(event) {
+            if ($(event.target).is('#successModal')) {
+              $('#successModal').fadeOut(function() {
+                window.location.href = "{% url 'contact' %}";
+              });
+            }
+          });
+
+          // Auto close the modal after 2 seconds
+          setTimeout(function() {
+            $('#successModal').fadeOut(function() {
+              window.location.href = "{% url 'contact' %}";
+            });
+          }, 2000);
+        }
+      {% endfor %}
+    {% endif %}
+  });
+</script>
+
 <!-- Displaying the message that the user has sent. -->
 {% if messages %}
-    <ul class="messages" style="color:green; list-style-type: none; text-align:center; font-family: "Times New Roman", Times, serif; font-size: 20px; font-weight: bold;">
-        {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
+  <ul class="messages" style="color:green; list-style-type: none; text-align:center; font-family: 'Times New Roman', Times, serif; font-size: 20px; font-weight: bold;">
+    {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
 {% endif %}
 {% endblock %}

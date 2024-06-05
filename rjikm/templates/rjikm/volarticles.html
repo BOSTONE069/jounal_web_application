@@ -8,18 +8,18 @@
 
         <!-- Creating a heading 3 with the title of the article. -->
         <h3 style="text-align:center; color: maroon;"> {{article.title}}</h3>
-        <h6 style="text-align:center;">
+        <div style="text-align:center;">
             {% for author in article.authors.all %}
-            {{ author.name }} 
+            <b>{{ author.name }}</b>
             <br />
-            {{ author.university }}
+            <i>{{ author.university }}</i>
             <br />
-            {{ author.email }}
+            <i>{{ author.email }}</i>
             <br />
             <br />
             {% if not forloop.last %} {% endif %}
             {% endfor %}
-        </h6>
+        </div>
 
         <p><strong>{{ article.abstract_title }}</strong></p>
         <pre style="white-space: pre-wrap; text-align: justify; font-family: 'Times New Roman', Times, serif; font-size: 14px;">{{ article.abstract }}</pre>
