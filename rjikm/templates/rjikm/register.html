@@ -1,19 +1,24 @@
 {% extends "rjikm/layoutoutsubmit.html" %}
-{%load crispy_forms_tags %}
+{% load crispy_forms_tags %}
 {% block body %}
 {% load static %}
-<div style="width:2000px; height:600px; background-image: url({% static 'rjikm/image2.jpeg' %}); background-size: cover; background-position: center; background-repeat: no-repeat;  color: blue;">
-<div style="margin: 100px 300px 200px 100px; padding: 70px; color:black;" >
-  <h1>Sign up</h1>
 
-<!-- A form that is used to sign up. -->
-  <form method="post" style="padding-right: 20px;">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="btn btn-primary">Sign up</button>
-</form>
+<!-- Main container with background image -->
+<div class="container-fluid" style="min-height: 100vh; background-image: url({% static 'rjikm/image2.jpeg' %}); background-size: cover; background-position: center; background-repeat: no-repeat; color: blue; display: flex; justify-content: center; align-items: center;">
 
-<p>Already have an account? <a href="{% url 'login' %}">Log in</a>.</p>
+  <!-- Sign-up form container -->
+  <div class="container" style="background-color: rgba(255, 255, 255, 0.8); padding: 50px; border-radius: 10px; max-width: 600px;">
+    <h1 class="text-center">Sign Up</h1>
+
+    <!-- Sign-up form -->
+    <form method="post" class="mt-4">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary w-100">Sign up</button>
+    </form>
+
+    <p class="text-center mt-3">Already have an account? <a href="{% url 'login' %}">Log in</a>.</p>
+  </div>
 </div>
-</div>
+
 {% endblock %}

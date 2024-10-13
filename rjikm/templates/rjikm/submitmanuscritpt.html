@@ -2,41 +2,64 @@
 
 {% block body %}
 <section style="margin: 70px 0px 0px 0px; background-color:#1a4036; color: #fff; font-size:20px; font-family: Times New Roman, Times, serif;">
-  <div>
+  <div class="container">
     <h1 style="text-align:center;">Submission Preparation Checklist</h1>
-    <p style="text-align:center;">As part of the submission process, authors are required to check off their submission's compliance with all the following items, and submissions may be returned to author that do not adhere to these guidelines.</p>
-      <ol style="display: inline-block; text-align: left; margin: 0px 80px 0px 80px;">
-          <li style="padding: 5px;">The submission has not been previously published, nor is it before another journal for consideration (or an explanation has been provided in Comments to the Editor).</li>
-          <li style="padding: 5px;">The submission file is in OpenOffice, Microsoft Word, RTF, or WordPerfect document file format.</li>
-          <li style="padding: 5px;">Where available, URLs for the references have been provided.</li>
-          <li style="padding: 5px;">The text is single-spaced; uses a 12-point font; employs italics, rather than underlining (except with URL addresses); and all illustrations, figures, and tables are placed within the text at the appropriate points, rather than at the end.</li>
-          <li style="padding: 5px;">The text adheres to the stylistic and bibliographic requirements outlined in the Author Guidelines, which is found in About the Journal.</li>
-          <li style="padding: 5px;">If submitting to a peer-reviewed section of the journal, the instructions in Ensuring a Blind Review have been followed.</li>
-      </ol>
+    <p style="text-align:center;">As part of the submission process, authors are required to check off their submission's compliance with all the following items, and submissions may be returned to the author if they do not adhere to these guidelines.</p>
+
+    <!-- Use flexbox for the list and adjust margins based on screen size -->
+    <ol class="d-flex flex-column" style="text-align: left; margin: 0px auto; max-width: 800px;">
+      <li style="padding: 5px;">The submission has not been previously published, nor is it before another journal for consideration (or an explanation has been provided in Comments to the Editor).</li>
+      <li style="padding: 5px;">The submission file is in OpenOffice, Microsoft Word, RTF, or WordPerfect document file format.</li>
+      <li style="padding: 5px;">Where available, URLs for the references have been provided.</li>
+      <li style="padding: 5px;">The text is single-spaced; uses a 12-point font; employs italics, rather than underlining (except with URL addresses); and all illustrations, figures, and tables are placed within the text at the appropriate points, rather than at the end.</li>
+      <li style="padding: 5px;">The text adheres to the stylistic and bibliographic requirements outlined in the Author Guidelines, which is found in About the Journal.</li>
+      <li style="padding: 5px;">If submitting to a peer-reviewed section of the journal, the instructions in Ensuring a Blind Review have been followed.</li>
+    </ol>
   </div>
 </section>
-<!-- The form that is being rendered. -->
-<section class="submitform" style="background-color: #1a4036;" >
-   <h1 style="text-align:center;">Submit Manuscript Here</h1>
-<!-- This is the form that is being rendered. -->
-<form method="post" enctype="multipart/form-data" action="{% url 'submit' %}">
-    {% csrf_token %}
-   {% for field in form %}
-        <div class="row mb-3">
-            {{ field.label_tag }}
-            {{ field }}
-        </div>
-    {% endfor %}
-    <input type="submit" value="Submit" style="width: 300px; border-radius: 8px; margin: 0px 20px 0px 0px">
-</form>
 
+<!-- Form Section -->
+<section class="submitform" style="background-color: #1a4036;">
+  <div class="container">
+    <h1 style="text-align:center;">Submit Manuscript Here</h1>
+
+    <!-- Form rendering with Bootstrap classes for responsiveness -->
+    <form method="post" enctype="multipart/form-data" action="{% url 'submit' %}" class="row g-3">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="col-md-6">
+          {{ field.label_tag }}
+          {{ field }}
+        </div>
+      {% endfor %}
+      <div class="col-12 text-center">
+        <input type="submit" value="Submit" class="btn btn-primary" style="width: 300px; border-radius: 8px; margin-top: 20px;">
+      </div>
+    </form>
+  </div>
 </section>
-  <!-- Displaying the message that is being passed from the views.py file. -->
-  {% if messages %}
-    <ul class="messages" style="color:green; list-style-type: none; text-align:center; font-family: "Times New Roman", Times, serif;">
-        {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
+
+<!-- Displaying messages -->
+{% if messages %}
+  <ul class="messages" style="color:green; list-style-type: none; text-align:center; font-family: 'Times New Roman', Times, serif;">
+    {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
 {% endif %}
+
+<!-- Media queries for mobile responsiveness -->
+<style>
+  @media (max-width: 768px) {
+    ol {
+      margin: 0px 20px; /* Smaller margins for mobile */
+      font-size: 18px;  /* Reduce font size on smaller screens */
+    }
+
+    input[type="submit"] {
+      width: 100%; /* Full width button for mobile */
+    }
+  }
+</style>
 {% endblock %}
+

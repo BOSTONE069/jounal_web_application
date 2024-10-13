@@ -1,20 +1,34 @@
 {% extends "rjikm/layoutoutsubmit.html" %}
-{%load crispy_forms_tags %}
+{% load crispy_forms_tags %}
 {% block body %}
 {% load static %}
-<div style="margin: 0px; width:2000px; height:600px; background-image: url({% static 'rjikm/background-image.jpg' %}); background-size: cover; background-repeat: no-repeat; background-position: center; color: #fff;">
- <div style="margin: 100px 600px 20px 600px; padding: 150px;">
-  <h1>Log in</h1>
-<!-- This is the form that is being rendered. -->
-<div  >
-  <!-- This is the form that is being rendered. -->
-  <form method="post">
-  {% csrf_token %}
-  {{ form.as_p}}
-  <button type="submit" class="btn btn-primary" style="margin-top:20px">Log in</button>
-  </form>
-   <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a>.</p>
+
+<!-- Container with a background image -->
+<div class="d-flex justify-content-center align-items-center" style="margin: 0px; width: 100%; height: 600px; background-image: url({% static 'rjikm/background-image.jpg' %}); background-size: cover; background-repeat: no-repeat; background-position: center; color: #fff;">
+
+  <!-- Inner content, flexed to the center with padding and responsive margins -->
+  <div class="text-center" style="padding: 50px; background-color: rgba(0, 0, 0, 0.6); border-radius: 10px; width: 90%; max-width: 400px;">
+    <h1>Log in</h1>
+
+    <!-- Form section -->
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary w-100" style="margin-top: 20px;">Log in</button>
+    </form>
+
+    <p style="margin-top: 15px;">Don't have an account? <a href="{% url 'register' %}" style="color: #0d6efd;">Sign up</a>.</p>
+  </div>
+
 </div>
-   </div>
-</div>
+
+<!-- Media queries for mobile responsiveness -->
+<style>
+  @media (max-width: 768px) {
+    div {
+      padding: 20px; /* Reduced padding for smaller screens */
+    }
+  }
+</style>
+
 {% endblock %}
